@@ -1,5 +1,9 @@
 import { app, BrowserWindow } from 'electron'
 
+// Working through a tutorial on Youtube:
+// https://www.youtube.com/watch?v=g6YXs_Tr6aI
+// Left off at time-stamp: 14:34
+
 /**
  * Set `__static` path to static files in production
  * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-static-assets.html
