@@ -1,13 +1,20 @@
 {
   "name": "electronVueJS-App",
   "main": "src/application.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "electron": "vue-cli-service build && electron ."
+    "start": "vue-cli-service build && electron .",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.electronVueJS-App.",
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico"
+    }
   },
   "dependencies": {
     "@vue/cli": "^4.4.6",
@@ -20,8 +27,10 @@
     "@vue/cli-service": "~4.4.0",
     "babel-eslint": "^10.1.0",
     "electron": "^9.0.5",
+    "electron-builder": "^22.7.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "nsis": "0.0.0",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
