@@ -1,13 +1,22 @@
 {
   "name": "electronVueJS-App",
   "main": "src/application.js",
-  "version": "0.0.2",
-  "private": true,
+  "version": "0.0.3",
+  "description": "A basic electronJS-Vue template application that can easily be re-used and forked to make many different kinds of native applications with a User Interface written in ES6 syntax.",
+  "author": "Seth Hollingsead",
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SethEden/electronVueJS-App.git"
+  },
+  "homepage": "https://github.com/SethEden/electronVueJS-App#readme",
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "vers": "standard-version -m \"chore(release) version %s [ci skip\"]",
     "start": "vue-cli-service build && electron .",
-    "dist": "electron-builder"
+    "dist": " npm run build && electron-builder"
   },
   "build": {
     "appId": "com.electronVueJS-App.",
