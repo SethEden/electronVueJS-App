@@ -15,6 +15,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "vers": "standard-version -m \"chore(release) version %s [ci skip\"]",
+    "docs": "jsdoc -c jsdoc.json",
     "start": "vue-cli-service build && electron .",
     "dist": " npm run build && electron-builder"
   },
@@ -39,6 +40,7 @@
     "electron-builder": "^22.7.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "jsdoc": "^3.6.4",
     "nsis": "0.0.0",
     "vue-template-compiler": "^2.6.11"
   },
