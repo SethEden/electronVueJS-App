@@ -1,47 +1,25 @@
 {
-  "name": "electronVueJS-App",
-  "main": "src/application.js",
-  "version": "0.0.3",
-  "description": "A basic electronJS-Vue template application that can easily be re-used and forked to make many different kinds of native applications with a User Interface written in ES6 syntax.",
-  "author": "Seth Hollingsead",
-  "license": "MIT",
-  "private": false,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SethEden/electronVueJS-App.git"
-  },
-  "homepage": "https://github.com/SethEden/electronVueJS-App#readme",
+  "name": "electronvuejs-app",
+  "main": "src/Application/main.js",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
+    "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "vers": "standard-version -m \"chore(release) version %s [ci skip\"]",
-    "docs": "jsdoc -c jsdoc.json",
-    "start": "vue-cli-service build && electron .",
-    "dist": " npm run build && electron-builder"
-  },
-  "build": {
-    "appId": "com.electronVueJS-App.",
-    "win": {
-      "target": "nsis",
-      "icon": "build/icon.ico"
-    }
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@vue/cli": "^4.4.6",
+    "babel-loader": "^8.1.0",
     "core-js": "^3.6.5",
     "vue": "^2.6.11"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.4.0",
-    "@vue/cli-plugin-eslint": "~4.4.0",
-    "@vue/cli-service": "~4.4.0",
+    "@vue/cli-plugin-babel": "~4.4.6",
+    "@vue/cli-plugin-eslint": "~4.4.6",
+    "@vue/cli-service": "~4.4.6",
     "babel-eslint": "^10.1.0",
-    "electron": "^9.0.5",
-    "electron-builder": "^22.7.0",
-    "eslint": "^6.7.2",
+    "eslint": "^7.4.0",
     "eslint-plugin-vue": "^6.2.2",
-    "jsdoc": "^3.6.4",
-    "nsis": "0.0.0",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {

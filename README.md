@@ -1,4 +1,4 @@
-# electron
+# electronvuejs-app
 
 ## Project setup
 ```
