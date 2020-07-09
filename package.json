@@ -4,6 +4,7 @@
   "description": "An Electron-VueJS application development template that can be forked to make many different kinds of native applications.",
   "main": "src/Application/electronVueJS-App/application.js",
   "scripts": {
+    "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
