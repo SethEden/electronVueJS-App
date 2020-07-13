@@ -6,6 +6,7 @@ module.exports = {
   ],
   pluginOptions: {
     electronBuilder: {
+      nodeIntegration: true,
       chainWebpackMainProcess: (config) => {
         // Chain webpack config for electron main process only
       },
