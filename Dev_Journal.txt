@@ -130,6 +130,11 @@ So clearly that didn't work.
 
 Reverting the code just to be safe, since that was the closest to getting a running application.
 
+Error is now:
+
+utils.js?e375:19 Uncaught TypeError: Cannot read property 'getPath' of undefined
+    at getPath (utils.js?e375:19)
+
 Attempted to enable Chrome logging via the Electron logging argument:
 "electron:serve": "vue-cli-service electron:serve --enable-logging",
 
