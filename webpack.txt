@@ -63,7 +63,7 @@
             loader: 'C:\\electronVueJS-App\\node_modules\\cache-loader\\dist\\cjs.js',
             options: {
               cacheDirectory: 'C:\\electronVueJS-App\\node_modules\\.cache\\vue-loader',
-              cacheIdentifier: 'b1938cec'
+              cacheIdentifier: '207b9b0f'
             }
           },
           /* config.module.rule('vue').use('vue-loader') */
@@ -74,7 +74,7 @@
                 whitespace: 'condense'
               },
               cacheDirectory: 'C:\\electronVueJS-App\\node_modules\\.cache\\vue-loader',
-              cacheIdentifier: 'b1938cec',
+              cacheIdentifier: '207b9b0f',
               transformAssetUrls: {
                 'v-app-bar': 'src',
                 'v-carousel-item': [
@@ -1542,7 +1542,7 @@
             loader: 'C:\\electronVueJS-App\\node_modules\\cache-loader\\dist\\cjs.js',
             options: {
               cacheDirectory: 'C:\\electronVueJS-App\\node_modules\\.cache\\babel-loader',
-              cacheIdentifier: '2fd7bbec'
+              cacheIdentifier: '60bdef6a'
             }
           },
           /* config.module.rule('js').use('babel-loader') */
@@ -1570,7 +1570,7 @@
                 '.vue'
               ],
               cache: true,
-              cacheIdentifier: '05a51bd3',
+              cacheIdentifier: '40adc54a',
               emitWarning: false,
               emitError: false,
               eslintPath: 'C:\\electronVueJS-App\\node_modules\\eslint',
