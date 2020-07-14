@@ -134,6 +134,15 @@ Error is now:
 
 utils.js?e375:19 Uncaught TypeError: Cannot read property 'getPath' of undefined
     at getPath (utils.js?e375:19)
+    at getIDMapPath (index.js?b206:29)
+    at eval (index.js?b206:32)
+    at Object../node_modules/electron-devtools-installer/dist/index.js (chunk-vendors.js:1117)
+    at __webpack_require__ (app.js:849)
+    at fn (app.js:151)
+    at eval (background.js?e28f:1)
+    at Module../src/Application/electronVueJS-App/background.js (app.js:949)
+    at __webpack_require__ (app.js:849)
+    at fn (app.js:151)
 
 Attempted to enable Chrome logging via the Electron logging argument:
 "electron:serve": "vue-cli-service electron:serve --enable-logging",
