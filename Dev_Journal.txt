@@ -148,3 +148,26 @@ Attempted to enable Chrome logging via the Electron logging argument:
 "electron:serve": "vue-cli-service electron:serve --enable-logging",
 
 This poped some additional windows but no additional information was displayed.
+
+Further investigation with Sean Alexander Free on the VueJS Developers Facebook page discovered the following:
+Interestingly, the problem is in the electron-dev-tools-installer node module's index.js on line 18:
+var _utils = require("./utils");
+
+The relative path isn't being found because the current directory is electron's renderer path.
+
+Adding console.log(__dirname) after the require shows:
+D:\workspace\electronVueJS-App\node_modules\electron\dist\resources\electron.asar\renderer
+
+Which of course is not the correct path to pull in a resource from a node_modules folder via a relative path.
+
+Seems like this is an issue with the installer module itself, but I would assume some webpack trickery could get around this.
+
+My response <Seth Hollingsead>
+Ahhh I see what you are saying. So it seems somewhere in the Electron-dev-tools-installer internal code,
+a developer reused the init-main path as the same path to base where to go and get the resources to load....
+pretty typical programming technique to use since it seems they never planned to allow the system folder structure to
+scale for custom enterprise solutions. (E.G. Client-Server).
+Further I would make a bet that this wouldn't be the last of the problems I would run into....
+and it certainly hasn't been the first.
+I will revert back to the default installation and investigate ways to turn the background.js & main.js files
+into a wrapper/call-forwarder and try to make it work that way.
