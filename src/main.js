@@ -1,9 +1,9 @@
 import Vue from 'vue'
-import App from './App.vue'
-import './registerServiceWorker'
-import router from './router'
-import store from './store'
-import vuetify from './plugins/vuetify'
+import App from './Application/electronVueJS-App/App.vue'
+import './Application/electronVueJS-App/registerServiceWorker'
+import router from './Application/electronVueJS-App/router'
+import store from './Application/electronVueJS-App/store'
+import vuetify from './Application/electronVueJS-App/plugins/vuetify'
 
 Vue.config.productionTip = false
 
