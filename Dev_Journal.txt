@@ -197,3 +197,43 @@ Here are some of the scripts that came with the system when I executed the start
 "lint": "vue-cli-service lint",
 "postinstall": "electron-builder install-app-deps",
 "postuninstall": "electron-builder install-app-deps"
+
+// ***********************************************************************************************************
+Beginning Operational Development
+// ***********************************************************************************************************
+
+Adding the code to application.js gives an error:
+
+var path = require('path');
+global.appRoot = path.resolve(__dirname);
+var baseFileName = path.basename(module.filename, path.extname(module.filename));
+
+Error:
+
+TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received type undefined
+    at validateString (internal/validators.js:112:11)
+    at Object.extname (path.js:752:5)
+    at Module.eval (webpack:///./src/Application/electronVueJS-App/application.js?:35:56)
+    at eval (webpack:///./src/Application/electronVueJS-App/application.js?:141:30)
+    at Module../src/Application/electronVueJS-App/application.js (C:\electronVueJS-App\dist_electron\index.js:1732:1)
+    at __webpack_require__ (C:\electronVueJS-App\dist_electron\index.js:20:30)
+    at eval (webpack:///./src/background.js?:4:100)
+    at Module../src/background.js (C:\electronVueJS-App\dist_electron\index.js:1744:1)
+    at __webpack_require__ (C:\electronVueJS-App\dist_electron\index.js:20:30)
+    at eval (webpack:///multi_./src/background.js?:1:18)
+
+Solved my problem with this:
+https://github.com/vuejs/vue-cli/issues/3804
+
+For those having this problem, I managed to solve it!
+
+It depends how did you installed @vue/cli. If you did it through:
+
+npm install -g @vue/cli
+
+then you'll have to uninstall it through:
+
+npm uninstall -g @vue/cli
+
+That -g is very important, otherwise you'll still have the global files saved and it would conflict.
+After you perform the uninstall, you can simply reinstall it as npm install -g @vue/cli@3.5.0 and it would install the 3.5.0 version. Change the 3.5.0 so something else if you wanna get another version.

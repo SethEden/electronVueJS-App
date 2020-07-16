@@ -1,0 +1,18 @@
+{
+  "source": {
+    "include": ["src"],
+    "includePattern": ".js$",
+    "excludePattern": "{node_modules/|Documentation}"
+  },
+  "plugins": ["plugins/markdown"],
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": true
+  },
+  "opts": {
+    "recurse": true,
+    "destination": "./src/Application/electronVueJS-App/Resources/Documentation",
+    "template": "./jsDocTemplate",
+    "readme": "./readme.md"
+  }
+}

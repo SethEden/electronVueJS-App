@@ -16,11 +16,15 @@
     "electron-serve": "vue-cli-service electron:serve",
     "build": "npm run electron-build",
     "start": "npm run electron-serve",
-    "vers": "standard-version -m \"chore(release) version %s [ci skip\"]"
+    "vers": "standard-version -m \"chore(release) version %s [ci skip\"]",
+    "docs": "jsdoc -c jsdoc.json",
+    "deploy": "npm run docs && npm run build",
+    "release": "npm run deploy && npm run vers"
   },
   "dependencies": {
     "chai-as-promised": "^7.1.1",
     "core-js": "^3.6.5",
+    "path": "^0.12.7",
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
@@ -50,6 +54,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.2.2",
     "geckodriver": "^1.19.1",
+    "jsdoc": "^3.6.4",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "spectron": "^11.0.0",
