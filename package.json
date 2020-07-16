@@ -1,19 +1,22 @@
 {
   "name": "electronVueJS-App",
-  "version": "0.1.0",
+  "version": "0.0.2",
+  "description": "A basic Electron, Vue, Vuetify, NodeJS template App that can be easily re-used and forked to make many different kinds of apps written with ES6 syntax.",
+  "main": "background.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SethEden/electronVueJS-App.git"
+  },
+  "homepage": "https://github.com/SethEden/electronVueJS-App#readme",
+  "author": "Seth Hollingsead",
+  "license": "MIT",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
-    "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint",
-    "electron:build": "vue-cli-service electron:build",
-    "electron:serve": "vue-cli-service electron:serve",
-    "postinstall": "electron-builder install-app-deps",
-    "postuninstall": "electron-builder install-app-deps"
+    "electron-build": "vue-cli-service electron:build",
+    "electron-serve": "vue-cli-service electron:serve",
+    "build": "npm run electron-build",
+    "start": "npm run electron-serve"
   },
-  "main": "background.js",
   "dependencies": {
     "chai-as-promised": "^7.1.1",
     "core-js": "^3.6.5",

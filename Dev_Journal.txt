@@ -4,7 +4,7 @@ https://medium.com/@bromix/electron-application-with-vue-js-and-vuetify-f2a1f9c7
 npm install -g @vue/cli
 vue create electron-app
 vue add vuetify
-vue add electron-builder 
+vue add electron-builder
 
 Result: Everything for Vue, Electron & Vuetify was working perfectly, but the folder structure was not correct to scale as an enterprise application.
 Default folder structure:
@@ -176,3 +176,24 @@ Further I would make a bet that this wouldn't be the last of the problems I woul
 and it certainly hasn't been the first.
 I will revert back to the default installation and investigate ways to turn the background.js & main.js files
 into a wrapper/call-forwarder and try to make it work that way.
+
+Finally got a working folder architecture that I can move forward with. It's not ideal but given everything I've been through above,
+it will have to do for now. So now I'm going to finally start moving some of the package.json scripts around and setting up the CICD life-cycle:
+Development,
+Build,
+Deployment,
+Release,
+Publish,
+Lint,
+Documentation,
+Test,
+Versioning,
+
+Here are some of the scripts that came with the system when I executed the startup commands as detailed at the very beginning of this DEV Journal:
+"serve": "vue-cli-service serve",
+"build": "vue-cli-service build",
+"test:unit": "vue-cli-service test:unit",
+"test:e2e": "vue-cli-service test:e2e",
+"lint": "vue-cli-service lint",
+"postinstall": "electron-builder install-app-deps",
+"postuninstall": "electron-builder install-app-deps"
