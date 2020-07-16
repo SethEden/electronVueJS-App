@@ -19,7 +19,7 @@
     "vers": "standard-version -m \"chore(release) version %s [ci skip\"]",
     "docs": "jsdoc -c jsdoc.json",
     "deploy": "npm run docs && npm run build",
-    "release": "npm run deploy && npm run vers"
+    "release": "npm run vers && npm run deploy"
   },
   "dependencies": {
     "chai-as-promised": "^7.1.1",
