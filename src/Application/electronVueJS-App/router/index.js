@@ -1,3 +1,13 @@
+/**
+ * @file index.js
+ * @module router-index
+ * @description Sets up the Vue-Router for the application so that it will be easy to
+ * navigate between views as part of a single page application.
+ * @requires {@link https://www.npmjs.com/package/vue|Vue}
+ * @requires {@link https://www.npmjs.com/package/vue-router|Vue-Router}
+ * @author System Generated
+ * @date 2020/07/15
+ */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'

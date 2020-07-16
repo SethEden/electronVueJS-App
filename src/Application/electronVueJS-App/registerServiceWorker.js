@@ -1,5 +1,13 @@
 /* eslint-disable no-console */
-
+/**
+ * @file registerServiceWorker.js
+ * @module registerServiceWorker
+ * @description The service worker is a web API that helps you cache your assets and
+ * other files so that when the user is offline or on slow network, he/she can still see results on the screen,
+ * as such, it helps you build a better user experience
+ * @author System Generated
+ * @date 2020/07/15
+ */
 import { register } from 'register-service-worker'
 
 if (process.env.NODE_ENV === 'production') {

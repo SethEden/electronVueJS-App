@@ -1,3 +1,14 @@
+/**
+ * @file vuetify.js
+ * @module vuetify
+ * @description The Vuetify plugin file. Setups the Vuetify object and configurations/themes.
+ * @requires {@link https://www.npmjs.com/package/vue|Vue}
+ * @requires {@link https://www.npmjs.com/package/vuetify|Vuetify}
+ * @type {object}
+ * @author System Generated
+ * @date 2020/07/15
+ */
+
 import Vue from 'vue'
 import Vuetify from 'vuetify/lib'
 
