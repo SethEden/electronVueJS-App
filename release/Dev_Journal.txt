@@ -1,6 +1,11 @@
 First setup, followed this tutorial:
 https://medium.com/@bromix/electron-application-with-vue-js-and-vuetify-f2a1f9c749b8
 
+npm install -g @vue/cli
+vue create electron-app
+vue add vuetify
+vue add electron-builder 
+
 Result: Everything for Vue, Electron & Vuetify was working perfectly, but the folder structure was not correct to scale as an enterprise application.
 Default folder structure:
 ProjectName
