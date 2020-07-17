@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: main</title>
+    <title>JSDoc: Module: system-constants</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: main</h1>
+    <h1 class="page-title">Module: system-constants</h1>
 
     
 
@@ -38,15 +38,11 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>Contrary to what you might think, this is not actually the main init for the application.
-It is however, the point where the view is injected to the output HTML for rendering.
-Apparently the Electron-Vue-Webpack architecture REQUIRES the background.js &amp; main.js files to be present and accounted for
-as part of the basic execution/build system, and those are hard requirements because there are hard-coded path elements
-in those npm packages. So apparently there is no room for flexibility on that point.
-Since I am trying to enable this system to scale I am only using these as wrappers/call-forwarders.
-See the Dev_Journal.txt for additional details.
-Details can also be found at this link:
-<a href="https://stackoverflow.com/questions/62722398/simulatedgreg-electron-vue-vuetify-error-message-vue-warn-unknown-custom-ele">https://stackoverflow.com/questions/62722398/simulatedgreg-electron-vue-vuetify-error-message-vue-warn-unknown-custom-ele</a></p></div>
+            <div class="description"><p>Contains system defined acronyms, many of them derived from the basic-constants.
+Also included are other constants like countries, named spoken languages.
+Also included are common files types, control key combinations, environment variable strings,
+system defined words and codes, user interface object types,
+and names of business rules/system defined named commands, etc...</p></div>
         
 
         
@@ -105,7 +101,7 @@ Details can also be found at this link:
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="main.js.html">main.js</a>, <a href="main.js.html#line1">line 1</a>
+        <a href="Framework_Constants_system.constants.js.html">Framework/Constants/system.constants.js</a>, <a href="Framework_Constants_system.constants.js.html#line1">line 1</a>
     </li></ul></dd>
     
 
@@ -145,17 +141,13 @@ Details can also be found at this link:
         <h3 class="subsection-title">Requires</h3>
 
         <ul>
-            <li><a href="https://www.npmjs.com/package/vue">Vue</a></li>
+            <li><a href="module-basic-constants.html">module:basic-constants</a></li>
         
-            <li>module:App.vue</li>
+            <li><a href="module-phonics-constants.html">module:phonics-constants</a></li>
         
-            <li><a href="module-registerServiceWorker.html">module:registerServiceWorker</a></li>
+            <li><a href="module-generic-constants.html">module:generic-constants</a></li>
         
-            <li>module:router</li>
-        
-            <li>module:store</li>
-        
-            <li><a href="module-vuetify.html">module:vuetify</a></li>
+            <li><a href="module-word-constants.html">module:word-constants</a></li>
         </ul>
     
 
