@@ -1,6 +1,6 @@
 {
   "name": "electronVueJS-App",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A basic Electron, Vue, Vuetify, NodeJS template App that can be easily re-used and forked to make many different kinds of apps written with ES6 syntax.",
   "main": "background.js",
   "repository": {
