@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Framework/Controllers/chiefCommander.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Framework/Controllers/chiefCommander.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file chiefCommander.js
+ * @module chiefCommander
+ * @description Holds all of the functions that manage the command queue, and allows commands to be enqueued and dequeued from the command queue.
+ * Also executes the command queue ultimately by making calls to the commandBroker to execute individual commands.
+ * @requires module:chiefData
+ * @requires module:commandBroker
+ * @requires module:queue
+ * @requires module:loggers
+ * @requires module:basic-constants
+ * @requires module:word-constants
+ * @requires module:system-constants
+ * @requires {@link https://www.npmjs.com/package/path|path}
+ * @requires module:data
+ * @author Seth Hollingsead
+ * @date 2020/06/18
+ * @copyright Copyright © 2020-… by Seth Hollingsead. All rights reserved
+ */
+import chiefData from '../Controllers/chiefData';
+import commandBroker from '../CommandsBlob/commandBroker';
+import queue from '../Resources/queue';
+import loggers from '../Executrix/loggers';
+import * as b from '../Constants/basic.constants';
+import * as w from '../Constants/word.constants';
+import * as s from '../Constants/system.constants';
+var path = require('path');
+var D = require('../Resources/data');
+var baseFileName = path.basename(module.filename, path.extname(module.filename));
+
+/**
+ * @function bootStrapCommands
+ * @description Initializes all of the commands and gets them added to the D-data structure.
+ * @return {void}
+ * @author Seth Hollingsead
+ * @date 2020/06/19
+ */
+function bootStrapCommands() {
+  let functionName = bootStrapCommands.name;
+  loggers.consoleLog(baseFileName + b.cDot + functionName, s.cBEGIN_Function);
+  commandBroker.bootStrapCommands();
+  loggers.consoleLog(baseFileName + b.cDot + functionName, s.cEND_Function);
+};
+
+/**
+ * @function loadCommandAliasesFromPath
+ * @description Loads the command aliases XML file that is specified by the input.
+ * The data is automatically saved on the D-data structure.
+ * @param {string} commandAliasesFilePath The path and file name to the XML file that contains the command aliases definitions.
+ * (Could be system command aliases or client command aliases)
+ * @return {void}
+ * @author Seth Hollingsead
+ * @date 2020/06/21
+ */
+function loadCommandAliasesFromPath(commandAliasesFilePathConfigurationName) {
+  let functionName = loadCommandAliasesFromPath.name;
+  loggers.consoleLog(baseFileName + b.cDot + functionName, s.cBEGIN_Function);
+  loggers.consoleLog(baseFileName + b.cDot + functionName, 'commandAliasesFilePathConfigurationName is: ' + commandAliasesFilePathConfigurationName);
+  let allCommandAliasesData = {};
+  allCommandAliasesData = chiefData.setupAllXmlData(commandAliasesFilePathConfigurationName, s.cCommandsAliases);
+  if (D[s.cCommandsAliases] === undefined) { // Make sure we only do this if it's undefined, otherwise we might wipe out previously loaded data.
+    D[s.cCommandsAliases] = {};
+    D[s.cCommandsAliases] = allCommandAliasesData[s.cCommandsAliases];
+  } else {
+    for (let i=0; i&lt;allCommandAliasesData[s.cCommandsAliases][w.cCommand].length; i++) {
+      D[s.cCommandsAliases][w.cCommand].push(allCommandAliasesData[s.cCommandsAliases][w.cCommand][i])
+    }
+  }
+  loggers.consoleLog(baseFileName + b.cDot + functionName, s.cEND_Function);
+};
+
+/**
+ * @function enqueueCommand
+ * @description Determines if the command queue has been setup or not,
+ * if not then it is initialized, and the command is added to the command queue.
+ * @param {string} command The command that should be added to the command queue.
+ * @return {void}
+ * @author Seth Hollingsead
+ * @date 2020/06/18
+ */
+function enqueueCommand(command) {
+  let functionName = enqueueCommand.name;
+  loggers.consoleLog(baseFileName + b.cDot + functionName, s.cBEGIN_Function);
+  loggers.consoleLog(baseFileName + b.cDot + functionName, 'command is: ' + command);
+  if (D[s.cCommandQueue] === undefined) {
+    queue.initQueue(s.cCommandQueue);
+  }
+  queue.enqueue(s.cCommandQueue, command);
+  loggers.consoleLog(baseFileName + b.cDot + functionName, s.cEND_Function);
+};
+
+/**
+ * @function isCommandQueueEmpty
+ * @description Determines if the command queue is empty or not empty.
+ * @return {Boolean} A True or False value to indicate if the command queue is empty or not empty.
+ * @author Seth Hollingsead
+ * @date 2020/06/18
+ */
+function isCommandQueueEmpty() {
+  let functionName = isCommandQueueEmpty.name;
+  loggers.consoleLog(baseFileName + b.cDot + functionName, s.cBEGIN_Function);
+  let returnValue = false;
+  returnValue = queue.isEmpty(s.cCommandQueue);
+  loggers.consoleLog(baseFileName + b.cDot + functionName, 'returnValue is: ' + returnValue);
+  loggers.consoleLog(baseFileName + b.cDot + functionName, s.cEND_Function);
+  return returnValue;
+};
+
+/**
+ * @function processCommandQueue
+ * @description Pulls the command from the front of the command queue and executes it using the command broker.
+ * @return {boolean} A True or False value to indicate if the application should exit or not exit.
+ * @author Seth Hollingsead
+ * @date 2020/06/18
+ */
+function processCommandQueue() {
+  let functionName = processCommandQueue.name;
+  loggers.consoleLog(baseFileName + b.cDot + functionName, s.cBEGIN_Function);
+  let commandToExecute;
+  let returnValue;
+  commandToExecute = queue.dequeue(s.cCommandQueue);
+  loggers.consoleLog(baseFileName + b.cDot + functionName, 'commandToExecute is: ' + commandToExecute);
+  returnValue = commandBroker.executeCommand(commandToExecute);
+  loggers.consoleLog(baseFileName + b.cDot + functionName, 'returnValue is: ' + returnValue);
+  loggers.consoleLog(baseFileName + b.cDot + functionName, s.cEND_Function);
+  return returnValue;
+};
+
+export default {
+  bootStrapCommands,
+  loadCommandAliasesFromPath,
+  enqueueCommand,
+  isCommandQueueEmpty,
+  processCommandQueue
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">NodeJS-App Documentation</a></h2><h3>Modules</h3><ul><li><a href="module-application.html">application</a></li><li><a href="module-application-constants.html">application-constants</a></li><li><a href="module-background.html">background</a></li><li><a href="module-basic-constants.html">basic-constants</a></li><li><a href="module-basic-constants-validation.html">basic-constants-validation</a></li><li><a href="module-characterGeneration.html">characterGeneration</a></li><li><a href="module-chiefCommander.html">chiefCommander</a></li><li><a href="module-chiefConfiguration.html">chiefConfiguration</a></li><li><a href="module-chiefData.html">chiefData</a></li><li><a href="module-chiefWorkflow.html">chiefWorkflow</a></li><li><a href="module-clientCommands.html">clientCommands</a></li><li><a href="module-clientCommandsLibrary.html">clientCommandsLibrary</a></li><li><a href="module-clientRulesLibrary.html">clientRulesLibrary</a></li><li><a href="module-clientStringParsing.html">clientStringParsing</a></li><li><a href="module-color-constants.html">color-constants</a></li><li><a href="module-color-constants-validation.html">color-constants-validation</a></li><li><a href="module-colorizer.html">colorizer</a></li><li><a href="module-commandBroker.html">commandBroker</a></li><li><a href="module-commandsLibrary.html">commandsLibrary</a></li><li><a href="module-configurator.html">configurator</a></li><li><a href="module-data.html">data</a></li><li><a href="module-dataBroker.html">dataBroker</a></li><li><a href="module-element-constants.html">element-constants</a></li><li><a href="module-element-constants-validation.html">element-constants-validation</a></li><li><a href="module-fileBroker.html">fileBroker</a></li><li><a href="module-generic-constants.html">generic-constants</a></li><li><a href="module-generic-constants-validation.html">generic-constants-validation</a></li><li><a href="module-isotope-constants-validation.html">isotope-constants-validation</a></li><li><a href="module-lexical.html">lexical</a></li><li><a href="module-loggers.html">loggers</a></li><li><a href="module-main.html">main</a></li><li><a href="module-mathOperations.html">mathOperations</a></li><li><a href="module-nominal.html">nominal</a></li><li><a href="module-numeric-constants.html">numeric-constants</a></li><li><a href="module-numeric-constants-validation.html">numeric-constants-validation</a></li><li><a href="module-phonics-constants.html">phonics-constants</a></li><li><a href="module-phonics-constants-validation.html">phonics-constants-validation</a></li><li><a href="module-queue.html">queue</a></li><li><a href="module-registerServiceWorker.html">registerServiceWorker</a></li><li><a href="module-router-index.html">router-index</a></li><li><a href="module-ruleBroker.html">ruleBroker</a></li><li><a href="module-rulesLibrary.html">rulesLibrary</a></li><li><a href="module-shape-constants.html">shape-constants</a></li><li><a href="module-shape-constants-validation.html">shape-constants-validation</a></li><li><a href="module-stack.html">stack</a></li><li><a href="module-store-index.html">store-index</a></li><li><a href="module-stringParsing.html">stringParsing</a></li><li><a href="module-stringrGeneration.html">stringrGeneration</a></li><li><a href="module-system-constants.html">system-constants</a></li><li><a href="module-system-constants-validation.html">system-constants-validation</a></li><li><a href="module-timers.html">timers</a></li><li><a href="module-units-constants.html">units-constants</a></li><li><a href="module-units-constants-validation.html">units-constants-validation</a></li><li><a href="module-vuetify.html">vuetify</a></li><li><a href="module-warden.html">warden</a></li><li><a href="module-word-constants.html">word-constants</a></li><li><a href="module-word-constants-validation.html">word-constants-validation</a></li><li><a href="module-workflowBroker.html">workflowBroker</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.4</a> on Fri Jul 31 2020 17:14:20 GMT-0500 (Central Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
