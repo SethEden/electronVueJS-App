@@ -7,21 +7,19 @@
  * @requires module:basic-constants
  * @requires module:word-constants
  * @requires module:system-constants
- * @requires {@link https://www.npmjs.com/package/path|path}
  * @requires module:data
  * @author Seth Hollingsead
  * @date 2020/06/04
  * @copyright Copyright © 2020-… by Seth Hollingsead. All rights reserved
  */
-import * as nominalCommands from './Commands/nominal';
-import * as unitTestConstants from './Commands/unitTestConstants';
-import loggers from '../Executrix/loggers';
-import * as b from '../Constants/basic.constants';
-import * as w from '../Constants/word.constants';
-import * as s from '../Constants/system.constants';
-var path = require('path');
-var D = require('../Resources/data');
-var baseFileName = path.basename(module.filename, path.extname(module.filename));
+import * as nominalCommands from './Commands/nominal.js';
+import * as unitTestConstants from './Commands/unitTestConstants.js';
+import loggers from '../Executrix/loggers.js';
+import * as b from '../Constants/basic.constants.js';
+import * as w from '../Constants/word.constants.js';
+import * as s from '../Constants/system.constants.js';
+var D = require('../Resources/data.js');
+var baseFileName = 'commandsLibrary';
 
 /**
  * @function initCommandsLibrary

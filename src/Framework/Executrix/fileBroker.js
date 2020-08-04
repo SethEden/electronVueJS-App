@@ -12,7 +12,6 @@
  * @requires module:generic-constants
  * @requires module:system-constants
  * @requires {@link https://www.npmjs.com/package/fs|fs}
- * @requires {@link https://www.npmjs.com/package/path|path}
  * @requires {@link https://www.npmjs.com/package/bestzip|bestzip}
  * @requires module:data
  * @requires {@link https://www.npmjs.com/package/papaparse|papaparse}
@@ -21,18 +20,19 @@
  * @date 2020/06/04
  * @copyright Copyright © 2020-… by Seth Hollingsead. All rights reserved
  */
-import ruleBroker from '../BusinessRules/ruleBroker';
-import configurator from './configurator';
-import loggers from './loggers';
-import timers from './timers';
-import * as b from '../Constants/basic.constants';
-import * as g from '../Constants/generic.constants';
-import * as s from '../Constants/system.constants';
-var fs = require('fs');
-var path = require('path');
-var zip = require('bestzip');
-var D = require('../Resources/data');
-var Papa = require('papaparse');
+import ruleBroker from '../BusinessRules/ruleBroker.js';
+import configurator from './configurator.js';
+import loggers from './loggers.js';
+import timers from './timers.js';
+import * as b from '../Constants/basic.constants.js';
+import * as g from '../Constants/generic.constants.js';
+import * as s from '../Constants/system.constants.js';
+import * as fs from 'fs';
+import * as zip from 'bestzip';
+import * as D from '../Resources/data.js';
+import * as Papa from 'papaparse';
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
 var xml2js = require('xml2js').Parser({
   parseNumbers: true,
   parseBooleans: true,
@@ -40,7 +40,7 @@ var xml2js = require('xml2js').Parser({
   mergeAttrs: true});
 var filesCollection = [];
 const directoriesToSkip = ['browser_components', 'node_modules', 'www', 'platforms', 'Release', 'Documentation'];
-var baseFileName = path.basename(module.filename, path.extname(module.filename));
+var baseFileName = 'fileBroker';
 
 /**
  * @function getXmlData

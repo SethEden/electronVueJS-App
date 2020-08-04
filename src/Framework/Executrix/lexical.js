@@ -8,20 +8,18 @@
  * @requires module:generic-constants
  * @requires module:word-constants
  * @requires module:system-constants
- * @requires {@link https://www.npmjs.com/package/path|path}
  * @author Seth Hollingsead
  * @date 2020/06/026
  * @copyright Copyright © 2020-… by Seth Hollingsead. All rights reserved
  */
-import configurator from './configurator';
-import ruleBroker from '../BusinessRules/ruleBroker';
-import loggers from './loggers';
-import * as b from '../Constants/basic.constants';
-import * as g from '../Constants/generic.constants';
-import * as w from '../Constants/word.constants';
-import * as s from '../Constants/system.constants';
-var path = require('path');
-var baseFileName = path.basename(module.filename, path.extname(module.filename));
+import configurator from './configurator.js';
+import ruleBroker from '../BusinessRules/ruleBroker.js';
+import loggers from './loggers.js';
+import * as b from '../Constants/basic.constants.js';
+import * as g from '../Constants/generic.constants.js';
+import * as w from '../Constants/word.constants.js';
+import * as s from '../Constants/system.constants.js';
+var baseFileName = 'lexical';
 
  /**
   * @function parseBusinessRuleArgument

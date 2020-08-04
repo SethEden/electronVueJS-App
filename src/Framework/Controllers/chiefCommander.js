@@ -10,22 +10,20 @@
  * @requires module:basic-constants
  * @requires module:word-constants
  * @requires module:system-constants
- * @requires {@link https://www.npmjs.com/package/path|path}
  * @requires module:data
  * @author Seth Hollingsead
  * @date 2020/06/18
  * @copyright Copyright © 2020-… by Seth Hollingsead. All rights reserved
  */
-import chiefData from '../Controllers/chiefData';
-import commandBroker from '../CommandsBlob/commandBroker';
-import queue from '../Resources/queue';
-import loggers from '../Executrix/loggers';
-import * as b from '../Constants/basic.constants';
-import * as w from '../Constants/word.constants';
-import * as s from '../Constants/system.constants';
-var path = require('path');
-var D = require('../Resources/data');
-var baseFileName = path.basename(module.filename, path.extname(module.filename));
+import chiefData from '../Controllers/chiefData.js';
+import commandBroker from '../CommandsBlob/commandBroker.js';
+import queue from '../Resources/queue.js';
+import loggers from '../Executrix/loggers.js';
+import * as b from '../Constants/basic.constants.js';
+import * as w from '../Constants/word.constants.js';
+import * as s from '../Constants/system.constants.js';
+var D = require('../Resources/data.js');
+var baseFileName = 'chiefCommander';
 
 /**
  * @function bootStrapCommands

@@ -7,20 +7,19 @@
 * @requires module:loggers
 * @requires module:basic-constants
 * @requires module:system-constants
-* @requires {@link https://www.npmjs.com/package/path|path}
 * @requires module:data
 * @author Seth Hollingsead
 * @date 2020/07/17
 * @copyright Copyright © 2020-… by Seth Hollingsead. All rights reserved
 */
-import configurator from '../../Executrix/configurator';
-import ruleBroker from '../../BusinessRules/ruleBroker';
-import loggers from '../../Executrix/loggers';
-import * as b from '../../Constants/basic.constants';
-import * as s from '../../Constants/system.constants';
+import configurator from '../../Executrix/configurator.js';
+import ruleBroker from '../../BusinessRules/ruleBroker.js';
+import loggers from '../../Executrix/loggers.js';
+import * as b from '../../Constants/basic.constants.js';
+import * as s from '../../Constants/system.constants.js';
 var path = require('path');
-var D = require('../../../Framework/Resources/data');
-var baseFileName = path.basename(module.filename, path.extname(module.filename));
+var D = require('../../../Framework/Resources/data.js');
+var baseFileName = 'unitTestConstants';
 
 /**
  * @function validateConstants

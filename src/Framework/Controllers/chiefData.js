@@ -8,18 +8,16 @@
  * @requires module:loggers
  * @requires module:basic-constants
  * @requires module:system-constants
- * @requires {@link https://www.npmjs.com/package/path|path}
  * @author Seth Hollingsead
  * @date 2020/06/04
  * @copyright Copyright © 2020-… by Seth Hollingsead. All rights reserved
  */
-import dataBroker from '../Executrix/dataBroker';
-import configurator from '../Executrix/configurator';
-import loggers from '../Executrix/loggers';
-import * as b from '../Constants/basic.constants';
-import * as s from '../Constants/system.constants';
-var path = require('path');
-var baseFileName = path.basename(module.filename, path.extname(module.filename));
+import dataBroker from '../Executrix/dataBroker.js';
+import configurator from '../Executrix/configurator.js';
+import loggers from '../Executrix/loggers.js';
+import * as b from '../Constants/basic.constants.js';
+import * as s from '../Constants/system.constants.js';
+var baseFileName = 'chiefData';
 
 /**
  * @function getAndProcessCsvData

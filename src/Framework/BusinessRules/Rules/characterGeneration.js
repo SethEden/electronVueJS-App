@@ -12,19 +12,17 @@
  * @requires module:generic-constants
  * @requires module:numeric-constants
  * @requires module:system-constants
- * @requires {@link https://www.npmjs.com/package/path|path}
  * @author Seth Hollingsead
  * @date 2020/06/04
  * @copyright Copyright © 2020-… by Seth Hollingsead. All rights reserved
  */
-import loggers from '../../Executrix/loggers';
-import { stringToBoolean } from './stringParsing';
-import * as b from '../../Constants/basic.constants';
-import * as g from '../../Constants/generic.constants';
-import * as n from '../../Constants/numeric.constants';
-import * as s from '../../Constants/system.constants';
-var path = require('path');
-var baseFileName = path.basename(module.filename, path.extname(module.filename));
+import loggers from '../../Executrix/loggers.js';
+import { stringToBoolean } from './stringParsing.js';
+import * as b from '../../Constants/basic.constants.js';
+import * as g from '../../Constants/generic.constants.js';
+import * as n from '../../Constants/numeric.constants.js';
+import * as s from '../../Constants/system.constants.js';
+var baseFileName = 'characterGeneration';
 
 /**
  * @function randomlyGenerateMixedCaseLetterOrSpecialCharacter

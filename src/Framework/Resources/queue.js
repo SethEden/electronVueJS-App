@@ -6,18 +6,16 @@
  * @requires module:loggers
  * @requires module:basic-constants
  * @requires module:system-constants
- * @requires {@link https://www.npmjs.com/package/path|path}
  * @requires module:data
  * @author Seth Hollingsead
  * @date 2020/06/18
  * @copyright Copyright © 2020-… by Seth Hollingsead. All rights reserved
  */
-import loggers from '../Executrix/loggers';
-import * as b from '../Constants/basic.constants';
-import * as s from '../Constants/system.constants';
-var path = require('path');
-var D = require('./data');
-var baseFileName = path.basename(module.filename, path.extname(module.filename));
+import loggers from '../Executrix/loggers.js';
+import * as b from '../Constants/basic.constants.js';
+import * as s from '../Constants/system.constants.js';
+var D = require('./data.js');
+var baseFileName = 'queue';
 
 /**
  * @function initQueue

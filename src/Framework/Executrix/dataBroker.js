@@ -23,33 +23,31 @@
  * @requires module:units-constants-validation
  * @requires module:word-constants-validation
  * @requires module:data
- * @requires {@link https://www.npmjs.com/package/path|path}
  * @author Seth Hollingsead
  * @date 2020/06/04
  * @copyright Copyright © 2020-… by Seth Hollingsead. All rights reserved
  */
-import ruleBroker from '../BusinessRules/ruleBroker';
-import fileBroker from './fileBroker';
-import configurator from './configurator';
-import loggers from './loggers';
-import * as b from '../Constants/basic.constants';
-import * as g from '../Constants/generic.constants';
-import * as w from '../Constants/word.constants';
-import * as s from '../Constants/system.constants';
-import * as bcv from '../Resources/ConstantsValidation/basic-constants-validation';
-import * as ccv from '../Resources/ConstantsValidation/color-constants-validation';
-import * as ecv from '../Resources/ConstantsValidation/element-constants-validation';
-import * as gcv from '../Resources/ConstantsValidation/generic-constants-validation';
-import * as icv from '../Resources/ConstantsValidation/isotope-constants-validation';
-import * as ncv from '../Resources/ConstantsValidation/numeric-constants-validation';
-import * as pcv from '../Resources/ConstantsValidation/phonics-constants-validation';
-import * as shcv from '../Resources/ConstantsValidation/shape-constants-validation';
-import * as scv from '../Resources/ConstantsValidation/system-constants-validation';
-import * as ucv from '../Resources/ConstantsValidation/units-constants-validation';
-import * as wcv from '../Resources/ConstantsValidation/word-constants-validation';
-var D = require('../Resources/data');
-var path = require('path');
-var baseFileName = path.basename(module.filename, path.extname(module.filename));
+import ruleBroker from '../BusinessRules/ruleBroker.js';
+import fileBroker from './fileBroker.js';
+import configurator from './configurator.js';
+import loggers from './loggers.js';
+import * as b from '../Constants/basic.constants.js';
+import * as g from '../Constants/generic.constants.js';
+import * as w from '../Constants/word.constants.js';
+import * as s from '../Constants/system.constants.js';
+import * as bcv from '../Resources/ConstantsValidation/basic-constants-validation.js';
+import * as ccv from '../Resources/ConstantsValidation/color-constants-validation.js';
+import * as ecv from '../Resources/ConstantsValidation/element-constants-validation.js';
+import * as gcv from '../Resources/ConstantsValidation/generic-constants-validation.js';
+import * as icv from '../Resources/ConstantsValidation/isotope-constants-validation.js';
+import * as ncv from '../Resources/ConstantsValidation/numeric-constants-validation.js';
+import * as pcv from '../Resources/ConstantsValidation/phonics-constants-validation.js';
+import * as shcv from '../Resources/ConstantsValidation/shape-constants-validation.js';
+import * as scv from '../Resources/ConstantsValidation/system-constants-validation.js';
+import * as ucv from '../Resources/ConstantsValidation/units-constants-validation.js';
+import * as wcv from '../Resources/ConstantsValidation/word-constants-validation.js';
+import * as D from '../Resources/data.js';
+var baseFileName = 'dataBroker';
 
 /**
  * @function scanDataPath

@@ -11,7 +11,7 @@
  * @date 2020/07/23
  * @copyright Copyright © 2020-… by Seth Hollingsead. All rights reserved
  */
-import * as s from '../../Constants/system.constants';
+import * as s from '../../Constants/system.constants.js';
 
  /**
  * @function systemConstantsValidation

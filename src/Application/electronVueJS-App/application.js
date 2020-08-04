@@ -9,6 +9,7 @@
  * So all of the functionality in those files is now done via a call to this file.
  * The file contains all of the application event processing.
  * Of course most of the work will be handed off to the Framework.
+ * @requires module:warden
  * @requires {@link https://www.npmjs.com/package/electron|electron}
  * @requires {@link https://www.npmjs.com/package/vue-cli-plugin-electron-builder|vue-cli-plugin-electron-builder}
  * @requires {@link https://www.npmjs.com/package/electron-devtools-installer|electron-devtools-installer}
@@ -19,7 +20,9 @@
  */
 'use strict'
 
-import { app, protocol, BrowserWindow } from 'electron'
+import warden from '../../Framework/Controllers/warden';
+import * as c from './Constants/application.constants';
+import { app, BrowserWindow } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 var path = require('path');
@@ -126,6 +129,10 @@ async function applicationReady(mainWindow) {
       console.error('Vue Devtools failed to install:', e.toString());
     }
   }
+  rootPath = global.appRoot;
+  rootPath = warden.processRootPath(rootPath);
+  warden.bootStrapApplication(rootPath + c.cConfigurationDataLookupPrefixPath);
+  warden.saveRootPath(rootPath);
   return createMainApplicationWindow(mainWindow);
 };
 

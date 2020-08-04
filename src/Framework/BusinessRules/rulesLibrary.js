@@ -12,12 +12,12 @@
  * @date 2020/06/04
  * @copyright Copyright © 2020-… by Seth Hollingsead. All rights reserved
  */
-import * as characterGeneration from './Rules/characterGeneration';
-import * as stringGeneration from './Rules/stringGeneration';
-import * as stringParsing from './Rules/stringParsing';
-import * as mathOperations from './Rules/mathOperations';
-import * as s from '../Constants/system.constants';
-var D = require('../Resources/data');
+import * as characterGeneration from './Rules/characterGeneration.js';
+import * as stringGeneration from './Rules/stringGeneration.js';
+import * as stringParsing from './Rules/stringParsing.js';
+import * as mathOperations from './Rules/mathOperations.js';
+import * as s from '../Constants/system.constants.js';
+import * as D from '../Resources/data.js';
 
 /**
  * @function initRulesLibrary

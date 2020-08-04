@@ -5,7 +5,6 @@
  * @requires module:loggers
  * @requires module:word-constants
  * @requires module:system-constants
- * @requires {@link https://www.npmjs.com/package/path|path}
  * @requires module:data
  * @author Seth Hollingsead
  * @date 2020/06/04
@@ -13,12 +12,13 @@
  * @NOTE This file is needed to keep these lower level functions separate from the chiefConfiguration.
  * Because having these functions in the chiefConfiguration can cause a circular dependency.
  */
-import loggers from './loggers';
-import * as w from '../Constants/word.constants';
-import * as s from '../Constants/system.constants';
-var path = require('path');
-var D = require('../Resources/data');
-// var baseFileName = path.basename(module.filename, path.extname(module.filename));
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+import loggers from './loggers.js';
+import * as w from '../Constants/word.constants.js';
+import * as s from '../Constants/system.constants.js';
+import * as D from '../Resources/data.js';
+var baseFileName = 'configurator';
 
 /**
  * @function setConfigurationSetting

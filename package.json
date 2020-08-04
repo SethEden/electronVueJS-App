@@ -3,6 +3,7 @@
   "version": "0.0.6",
   "description": "A basic Electron, Vue, Vuetify, NodeJS template App that can be easily re-used and forked to make many different kinds of apps written with ES6 syntax.",
   "main": "background.js",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SethEden/electronVueJS-App.git"
@@ -14,24 +15,48 @@
   "scripts": {
     "electron-build": "vue-cli-service electron:build",
     "electron-serve": "vue-cli-service electron:serve",
-    "build": "npm run electron-build",
-    "start": "npm run electron-serve",
+    "build-temp": "npm run electron-build",
+    "start-temp": "npm run electron-serve",
+    "build": "node --experimental-modules src/Application/electronVueJS-App/build.js",
+    "start": "node --experimental-modules src/Application/electronVueJS-App/build.js && npm run electron-serve",
     "vers": "standard-version -m \"chore(release) version %s [ci skip\"]",
     "docs": "jsdoc -c jsdoc.json",
     "deploy": "npm run docs && npm run build",
     "release": "npm run vers && npm run deploy"
   },
+  "build": {
+    "extraResources": [
+      {
+        "from": "./src/Application/electronVueJS-App/Resources/Configuration/",
+        "to": "ElectronVueJS-App/Resources/Configuration",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ]
+  },
   "dependencies": {
+    "bestzip": "^2.1.6",
     "chai-as-promised": "^7.1.1",
     "core-js": "^3.6.5",
+    "figlet": "^1.5.0",
+    "mathjs": "^7.1.0",
+    "moment": "^2.27.0",
+    "n-readlines": "^1.0.0",
+    "papaparse": "^5.2.0",
     "path": "^0.12.7",
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vuetify": "^2.2.11",
-    "vuex": "^3.4.0"
+    "vuex": "^3.4.0",
+    "xml2js": "^0.4.23"
   },
   "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.0",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.11.0",
     "@vue/cli-plugin-babel": "~4.4.0",
     "@vue/cli-plugin-e2e-nightwatch": "~4.4.0",
     "@vue/cli-plugin-eslint": "~4.4.0",

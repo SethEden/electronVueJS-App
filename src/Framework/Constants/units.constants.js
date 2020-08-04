@@ -10,9 +10,9 @@
  * @date 2020/07/21
  * @copyright Copyright © 2020-… by Seth Hollingsead. All rights reserved
  */
-import * as b from '../constants/basic.constants';
-import * as p from '../constants/phonics.constants';
-import * as n from '../constants/numeric.constants';
+import * as b from './basic.constants.js';
+import * as p from './phonics.constants.js';
+import * as n from './numeric.constants.js';
 
 // Units of Measure
 export const cFemto = b.cFe + b.cmt + b.co; // Femto

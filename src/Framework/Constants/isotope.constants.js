@@ -12,12 +12,12 @@
 * {@link https://en.wikipedia.org/wiki/List_of_mathematical_shapes}
 */
 
-import * as b from './basic.constants';
-import * as p from './phonics.constants';
-import * as n from './numeric.constants';
-import * as g from './generic.constants';
-import * as w from './word.constants';
-import * as e from './element.constants';
+import * as b from './basic.constants.js';
+import * as p from './phonics.constants.js';
+import * as n from './numeric.constants.js';
+import * as g from './generic.constants.js';
+import * as w from './word.constants.js';
+import * as e from './element.constants.js';
 
  // Hydrogen - H
 export const c1H = n.c1 + e.cH; // 1H

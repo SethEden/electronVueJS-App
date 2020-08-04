@@ -14,14 +14,14 @@
  * @date 2020/06/09
  * @copyright Copyright © 2020-… by Seth Hollingsead. All rights reserved
  */
-import configurator from './configurator';
-import ruleBroker from '../BusinessRules/ruleBroker';
-import * as b from '../Constants/basic.constants';
-import * as w from '../Constants/word.constants';
-import * as colr from '../Constants/color.constants';
-import * as s from '../Constants/system.constants';
+import configurator from './configurator.js';
+import ruleBroker from '../BusinessRules/ruleBroker.js';
+import * as b from '../Constants/basic.constants.js';
+import * as w from '../Constants/word.constants.js';
+import * as colr from '../Constants/color.constants.js';
+import * as s from '../Constants/system.constants.js';
 var chalk = require('chalk');
-var D = require('../Resources/data');
+var D = require('../Resources/data.js');
 
 /**
  * @function colorizeMessage

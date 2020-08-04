@@ -7,7 +7,7 @@
  * @date 2020/07/23
  * @copyright Copyright © 2020-… by Seth Hollingsead. All rights reserved
  */
-import * as g from '../../Constants/generic.constants';
+import * as g from '../../Constants/generic.constants.js';
 
  /**
  * @function genericConstantsValidation

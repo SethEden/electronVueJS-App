@@ -11,23 +11,21 @@
  * @requires module:basic-constants
  * @requires module:word-constants
  * @requires module:system-constants
- * @requires {@link https://www.npmjs.com/package/path|path}
  * @requires module:data
  * @author Seth Hollingsead
  * @date 2020/06/04
  * @copyright Copyright © 2020-… by Seth Hollingsead. All rights reserved
  */
-import chiefData from '../Controllers/chiefData';
-import configurator from '../Executrix/configurator';
-import ruleBroker from '../BusinessRules/ruleBroker';
-import loggers from '../Executrix/loggers';
-import timers from '../Executrix/timers';
-import * as b from '../Constants/basic.constants';
-import * as w from '../Constants/word.constants';
-import * as s from '../Constants/system.constants';
-var path = require('path');
-var D = require('../Resources/data');
-var baseFileName = path.basename(module.filename, path.extname(module.filename));
+import chiefData from '../Controllers/chiefData.js';
+import configurator from '../Executrix/configurator.js';
+import ruleBroker from '../BusinessRules/ruleBroker.js';
+import loggers from '../Executrix/loggers.js';
+import timers from '../Executrix/timers.js';
+import * as b from '../Constants/basic.constants.js';
+import * as w from '../Constants/word.constants.js';
+import * as s from '../Constants/system.constants.js';
+import * as D from '../Resources/data.js';
+var baseFileName = 'chiefConfiguration';
 
 /**
  * @function setupConfiguration

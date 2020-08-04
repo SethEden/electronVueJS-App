@@ -5,17 +5,16 @@
  * @requires module:rulesLibrary
  * @requires module:basic-constants
  * @requires module:system-constants
- * @requires {@link https://www.npmjs.com/package/path|path}
  * @requires module:data
  * @author Seth Hollingsead
  * @date 2020/06/04
  * @copyright Copyright © 2020-… by Seth Hollingsead. All rights reserved
  */
-import * as rules from './rulesLibrary';
-import * as b from '../Constants/basic.constants';
-import * as s from '../Constants/system.constants';
-var path = require('path');
-var D = require('../Resources/data');
+import * as rules from './rulesLibrary.js';
+import * as b from '../Constants/basic.constants.js';
+import * as s from '../Constants/system.constants.js';
+import * as D from '../Resources/data.js';
+var baseFileName = 'ruleBroker';
 
 /**
  * @function bootStrapApplication

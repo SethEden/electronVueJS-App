@@ -10,10 +10,10 @@
  * @date 2020/07/16
  * @copyright Copyright © 2020-… by Seth Hollingsead. All rights reserved
  */
-import * as b from './basic.constants';
-import * as p from './phonics.constants';
-import * as g from './generic.constants';
-import * as w from './word.constants';
+import * as b from './basic.constants.js';
+import * as p from './phonics.constants.js';
+import * as g from './generic.constants.js';
+import * as w from './word.constants.js';
 
 // Colors
 // Primary Colors

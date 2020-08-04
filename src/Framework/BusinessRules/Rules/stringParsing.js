@@ -14,7 +14,6 @@
  * @requires module:system-constants
  * @requires {@link https://www.npmjs.com/package/n-readlines|n-readlines}
  * @requires {@link https://www.npmjs.com/package/lodash|lodash}
- * @requires {@link https://www.npmjs.com/package/path|path}
  * @requires {@link https://mathjs.org/index.html|math}
  * @requires {@link https://www.npmjs.com/package/chalk|chalk}
  * @requires module:data
@@ -22,19 +21,18 @@
  * @date 2020/06/04
  * @copyright Copyright © 2020-… by Seth Hollingsead. All rights reserved
  */
-import configurator from '../../Executrix/configurator';
-import loggers from '../../Executrix/loggers';
-import * as b from '../../Constants/basic.constants';
-import * as g from '../../Constants/generic.constants';
-import * as w from '../../Constants/word.constants';
-import * as s from '../../Constants/system.constants';
-const lineByLine = require('n-readlines');
-const _ = require('lodash');
-var path = require('path');
-var math = require('mathjs');
-var chalk = require('chalk');
-var D = require('../../../Framework/Resources/data');
-var baseFileName = path.basename(module.filename, path.extname(module.filename));
+import configurator from '../../Executrix/configurator.js';
+import loggers from '../../Executrix/loggers.js';
+import * as b from '../../Constants/basic.constants.js';
+import * as g from '../../Constants/generic.constants.js';
+import * as w from '../../Constants/word.constants.js';
+import * as s from '../../Constants/system.constants.js';
+import * as lineByLine from 'n-readlines';
+import * as _ from 'lodash';
+import * as math from 'mathjs';
+import * as chalk from 'chalk';
+import * as D from '../../../Framework/Resources/data.js';
+var baseFileName = 'stringParsing';
 
 /**
  * @function stringToBoolean

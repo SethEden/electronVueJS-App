@@ -17,32 +17,30 @@
  * @requires module:word-constants
  * @requires module:system-constants
  * @requires {@link https://www.npmjs.com/package/figlet|figlet}
- * @requires {@link https://www.npmjs.com/package/path|path}
  * @requires {@link https://mathjs.org/index.html|math}
  * @requires module:data
  * @author Seth Hollingsead
  * @date 2020/06/19
  * @copyright Copyright © 2020-… by Seth Hollingsead. All rights reserved
  */
-import configurator from '../../Executrix/configurator';
-import lexical from '../../Executrix/lexical';
-import commandBroker from '../commandBroker';
-import ruleBroker from '../../BusinessRules/ruleBroker';
-import fileBroker from '../../Executrix/fileBroker';
-import workflowBroker from '../../Executrix/workflowBroker';
-import queue from '../../Resources/queue';
-import stack from '../../Resources/stack';
-import timers from '../../Executrix/timers';
-import loggers from '../../Executrix/loggers';
-import * as b from '../../Constants/basic.constants';
-import * as g from '../../Constants/generic.constants';
-import * as w from '../../Constants/word.constants';
-import * as s from '../../Constants/system.constants';
+import configurator from '../../Executrix/configurator.js';
+import lexical from '../../Executrix/lexical.js';
+import commandBroker from '../commandBroker.js';
+import ruleBroker from '../../BusinessRules/ruleBroker.js';
+import fileBroker from '../../Executrix/fileBroker.js';
+import workflowBroker from '../../Executrix/workflowBroker.js';
+import queue from '../../Resources/queue.js';
+import stack from '../../Resources/stack.js';
+import timers from '../../Executrix/timers.js';
+import loggers from '../../Executrix/loggers.js';
+import * as b from '../../Constants/basic.constants.js';
+import * as g from '../../Constants/generic.constants.js';
+import * as w from '../../Constants/word.constants.js';
+import * as s from '../../Constants/system.constants.js';
 const figlet = require('figlet');
-var path = require('path');
 var math = require('mathjs');
-var D = require('../../../Framework/Resources/data');
-var baseFileName = path.basename(module.filename, path.extname(module.filename));
+var D = require('../../../Framework/Resources/data.js');
+var baseFileName = 'nominal';
 
  /**
   * @function echoCommand

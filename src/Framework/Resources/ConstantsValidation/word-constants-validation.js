@@ -7,7 +7,7 @@
  * @date 2020/07/23
  * @copyright Copyright © 2020-… by Seth Hollingsead. All rights reserved
  */
-import * as w from '../../Constants/word.constants';
+import * as w from '../../Constants/word.constants.js';
 
  /**
  * @function wordConstantsValidation

@@ -8,7 +8,7 @@
  * @date 2020/07/16
  * @copyright Copyright © 2020-… by Seth Hollingsead. All rights reserved
  */
-import * as b from './basic.constants';
+import * as b from './basic.constants.js';
 
 // Reusable Grammer
 export const chree = b.chr + b.cee; // hree

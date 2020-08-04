@@ -8,7 +8,7 @@
  * @date 2020/07/23
  * @copyright Copyright © 2020-… by Seth Hollingsead. All rights reserved
  */
-import * as u from '../../Constants/units.constants';
+import * as u from '../../Constants/units.constants.js';
 
  /**
  * @function unitsConstantsValidation
