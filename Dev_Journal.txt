@@ -1,0 +1,199 @@
+First setup, followed this tutorial:
+https://medium.com/@bromix/electron-application-with-vue-js-and-vuetify-f2a1f9c749b8
+
+npm install -g @vue/cli
+vue create electron-app
+vue add vuetify
+vue add electron-builder
+
+Result: Everything for Vue, Electron & Vuetify was working perfectly, but the folder structure was not correct to scale as an enterprise application.
+Default folder structure:
+ProjectName
+ - src
+ --- main.js
+
+This is what the folder structure should be:
+ProjectName
+ - src
+ --- Application
+ ------ ProjectName
+ --------- main.js
+
+This way we can have a framework folder and everything will be contained within the src project root folder.
+
+All files in the src path were moved into the new folder structure path: @/src/Application/ProjectName/.
+
+Result: Build is completely broken.
+
+Found this blog article:
+https://vuejsdevelopers.com/2019/03/18/vue-cli-3-rename-src-folder/
+And this article:
+https://vuejsdevelopers.com/2019/03/11/vue-cli-3-full-stack/
+And this GitHub bug report:
+https://github.com/vuejs/vue-cli/issues/1134
+
+After implementing these fixes, the build is still broken, additional searching and I found this:
+https://nklayman.github.io/vue-cli-plugin-electron-builder/guide/configuration.html#webpack-configuration
+
+After implementing this fix and a few other obvious changes to various paths in the code files and package.json main entry-point,
+the build is now working, but the application gives an error on load and the Vue fails to render.
+
+Error message:
+[HMR] Waiting for update signal from WDS...
+utils.js?e375:21 Uncaught TypeError: Cannot read property 'getPath' of undefined
+    at getPath (utils.js?e375:21)
+    at getIDMapPath (index.js?b206:29)
+    at eval (index.js?b206:32)
+    at Object../node_modules/electron-devtools-installer/dist/index.js (chunk-vendors.js:1117)
+    at __webpack_require__ (app.js:849)
+    at fn (app.js:151)
+    at eval (background.js?e28f:1)
+    at Module../src/Application/electronVueJS-Basic/background.js (app.js:949)
+    at __webpack_require__ (app.js:849)
+    at fn (app.js:151)
+
+Looking up the utils.js?e375:21 at the following path:
+C:\electronVueJS-Basic\node_modules\electron-devtools-installer\dist\utils.js
+
+The code for the failure is:
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.changePermissions = exports.downloadFile = exports.getPath = void 0;
+
+var _electron = require("electron");
+
+var _fs = _interopRequireDefault(require("fs"));
+
+var _path = _interopRequireDefault(require("path"));
+
+var _https = _interopRequireDefault(require("https"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var getPath = function getPath() {
+  var savePath = _electron.app.getPath('userData'); // <-------------------- HERE
+
+// Attempted to modify the above code like so, to be able to see what exactly is failing:
+
+var getPath = function getPath() {
+	console.log('_electron is: ' + JSON.stringify(_electron));
+	console.log('_electron is: ', _electron);
+	var savePath = _electron.app.getPath('userData'); // <-------------------- HERE
+
+// Now the build fails to finish the build process, so attempting something else:
+rather than:
+
+var _electron = require("electron");
+
+I'm going to do this:
+const remote = require('electron').remote;
+const app = remote.app;
+console.log(app.getPath('userData'));
+
+Then I will attempt:
+const remote = require('electron').remote;
+console.log('remote electron is: ", remote);
+const app = remote.app;
+console.log('remote app is: ', app);
+console.log(app.getPath('userData'));
+
+and finally:
+var getPath = function getPath() {
+  var savePath = app.getPath('userData');
+
+Another build-time error:
+[Window Title]
+Error
+
+[Main Instruction]
+A JavaScript error occurred in the main process
+
+[Content]
+Uncaught Exception:
+TypeError: Cannot read property 'app' of undefined
+    at eval (webpack:///./node_modules/electron-devtools-installer/dist/utils.js?:11:20)
+    at Object../node_modules/electron-devtools-installer/dist/utils.js (C:\electronVueJS-Basic\dist_electron\index.js:166:1)
+    at __webpack_require__ (C:\electronVueJS-Basic\dist_electron\index.js:20:30)
+    at eval (webpack:///./node_modules/electron-devtools-installer/dist/downloadChromeExtension.js?:16:14)
+    at Object../node_modules/electron-devtools-installer/dist/downloadChromeExtension.js (C:\electronVueJS-Basic\dist_electron\index.js:142:1)
+    at __webpack_require__ (C:\electronVueJS-Basic\dist_electron\index.js:20:30)
+    at eval (webpack:///./node_modules/electron-devtools-installer/dist/index.js?:16:55)
+    at Object../node_modules/electron-devtools-installer/dist/index.js (C:\electronVueJS-Basic\dist_electron\index.js:154:1)
+    at __webpack_require__ (C:\electronVueJS-Basic\dist_electron\index.js:20:30)
+    at eval (webpack:///./src/Application/electronVueJS-Basic/background.js?:6:85)
+
+[OK]
+
+That error is now happening on this line:
+const electApp = remote.app;
+
+So clearly that didn't work.
+
+Reverting the code just to be safe, since that was the closest to getting a running application.
+
+Error is now:
+
+utils.js?e375:19 Uncaught TypeError: Cannot read property 'getPath' of undefined
+    at getPath (utils.js?e375:19)
+    at getIDMapPath (index.js?b206:29)
+    at eval (index.js?b206:32)
+    at Object../node_modules/electron-devtools-installer/dist/index.js (chunk-vendors.js:1117)
+    at __webpack_require__ (app.js:849)
+    at fn (app.js:151)
+    at eval (background.js?e28f:1)
+    at Module../src/Application/electronVueJS-Basic/background.js (app.js:949)
+    at __webpack_require__ (app.js:849)
+    at fn (app.js:151)
+
+Attempted to enable Chrome logging via the Electron logging argument:
+"electron:serve": "vue-cli-service electron:serve --enable-logging",
+
+This poped some additional windows but no additional information was displayed.
+
+Further investigation with Sean Alexander Free on the VueJS Developers Facebook page discovered the following:
+Interestingly, the problem is in the electron-dev-tools-installer node module's index.js on line 18:
+var _utils = require("./utils");
+
+The relative path isn't being found because the current directory is electron's renderer path.
+
+Adding console.log(__dirname) after the require shows:
+D:\workspace\electronVueJS-Basic\node_modules\electron\dist\resources\electron.asar\renderer
+
+Which of course is not the correct path to pull in a resource from a node_modules folder via a relative path.
+
+Seems like this is an issue with the installer module itself, but I would assume some webpack trickery could get around this.
+
+My response <Seth Hollingsead>
+Ahhh I see what you are saying. So it seems somewhere in the Electron-dev-tools-installer internal code,
+a developer reused the init-main path as the same path to base where to go and get the resources to load....
+pretty typical programming technique to use since it seems they never planned to allow the system folder structure to
+scale for custom enterprise solutions. (E.G. Client-Server).
+Further I would make a bet that this wouldn't be the last of the problems I would run into....
+and it certainly hasn't been the first.
+I will revert back to the default installation and investigate ways to turn the background.js & main.js files
+into a wrapper/call-forwarder and try to make it work that way.
+
+Finally got a working folder architecture that I can move forward with. It's not ideal but given everything I've been through above,
+it will have to do for now. So now I'm going to finally start moving some of the package.json scripts around and setting up the CICD life-cycle:
+Development,
+Build,
+Deployment,
+Release,
+Publish,
+Lint,
+Documentation,
+Test,
+Versioning,
+
+Here are some of the scripts that came with the system when I executed the startup commands as detailed at the very beginning of this DEV Journal:
+"serve": "vue-cli-service serve",
+"build": "vue-cli-service build",
+"test:unit": "vue-cli-service test:unit",
+"test:e2e": "vue-cli-service test:e2e",
+"lint": "vue-cli-service lint",
+"postinstall": "electron-builder install-app-deps",
+"postuninstall": "electron-builder install-app-deps"
