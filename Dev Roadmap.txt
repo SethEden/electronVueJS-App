@@ -1,0 +1,413 @@
+******************************************************************************************************************
+OLD Dev Roadmap
+******************************************************************************************************************
+Stripe 1—Opening, Requirements 8, 14, 15, 16, 17, 18, 23, 28, 38, 46, 57 Stripe 2.1—GUI Objects, Requirements 18, 52
+Stripe 2.2—Floor Tiling, Requirement 43
+Stripe 2.3—Mesh Placement, Requirements 13, 43 
+Stripe 2.4—Save and Load, Requirement 4
+Stripe 3.1—Navigate Alexandria, Requirement 13, 14, 15, 16, 17, 36, 61
+Stripe 3.2—Sound, Requirements 29, 30, 31, 32, 33
+Stripe 4—Character Editor, Requirements 18, 19, 20, 21, 22, 35, 44
+Stripe 5—Unit Physics, Requirements 13, 14, 15, 16, 17, 35, 41, 42, 45, 47, 48, 64 Stripe 6—Inventory Items, Requirements 40, 49, 55
+Stripe 7—Combat, Requirements 54, 56
+Stripe 8—Acquire Skills, Requirements 20, 34, 47, 55, 56
+Stripe 9—Acquire Weapon, Requirements 14, 15, 16, 17, 40, 49
+Stripe 10—View Statistics, Requirements 14, 15, 16, 17, 18, 19, 20, 21
+Stripe 11—AI, Requirements 24, 25, 26, 37
+Stripe 12—Remaining Levels, Requirement 27
+Stripe 13—Saving and Loading, Requirements 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 Stripe 14—Options, Requirement 39
+Stripe 15—Revisions
+[07/29/2015 09:02:21 PM] Matthew Nowaczewski: That is the style of design I would like to achieve for the project.
+[07/29/2015 10:10:06 PM] Matthew Nowaczewski: Stripes, each stripe has its requirements
+[07/29/2015 10:10:13 PM] Matthew Nowaczewski: you develop from stripe 1 and move up.
+[07/29/2015 10:11:17 PM] Matthew Nowaczewski: More specifically I’d like to complete a IEEE830 which has been superseded by 29148-2011
+[07/29/2015 10:12:44 PM] Matthew Nowaczewski: So I’d like to complete a Software Requirements Specification with you under those guidelines
+
+******************************************************************************************************************
+NEW Dev Roadmap
+******************************************************************************************************************
+NOTE: Most of these should be done sequentially from top to bottom and implementation should mostly be leveraging existing functionality in BabylonJS.
+Such as: building wrappers, abstraction layers, commands and workflows by leveraging the business rules system of the framework.
+
+Requirements
+Phase 0 (Application GUI)
+Strip 1 (Standup Application Framework)
+1. Build the basic shell application with automated deployment, JSDoc, standard-version, package.json, web-pack, electron-builder & Vue/Vuetify/Vuex
+2. Implement the interactive shell interface.
+3. Leverage the system built so far to build an installer for the same system that can copy configuration files, to the users home director.
+4. Implement the NodeJS-App scripting design pattern with the business rules, command queue, workflows, etc...
+5. Wireup the command engine to window generation to control what windows appear in what configurations.
+6. Build a few generic test panels such as the standard RGB test panel used in TV broadcast, Blue-screen test panel, and a few old-fashion test panels. European test panels.
+
+Strip 2 (GUI Skinning Engine - CSS)
+7. Implement GUI skinning engine rendering graph and syntax parsing engine.
+8. Add support for inheritance properties graph.
+9. Implement basic data-binding functionality.
+10. Add support for basic GUI control objects, Buttons, Check boxes, Combo boxes, radio buttons, text boxes, labels.
+11. Add support for slightly more advanced GUI control objects, List boxes, Rich Text Edit fields, Arrays/tables.
+12. Add support for nested object structures such as buttons inside lists with radio buttons.
+13. Add support for composed view objects, with rich embedding capabilities and advanced data-binding.
+14. Add support for standardized User interface controls, such as open file dialog box, select folder dialog box, select file/folder dialog box, Save File dialog box, Print Dialog box, Color Picker dialog box, date picker dialog box.
+15. Add support for data-bound graphs and data-plotting, real-time data plotting. (Web-Sockets)
+
+Strip 3 (Configuration GUI development)
+16. Build a configuration page manager GUI that itself can be configured from NodeJS-App scripts.
+17. Add configuration GUI pages for mouse.
+18. Add configuration GUI pages for keyboard.
+19. Add configuration GUI pages for sounds.
+20. Add configuration GUI pages for sound-rendering.
+21. Add configuration GUI pages for graphics.
+22. Add configuration GUI pages for rendering.
+23. Add configuration GUI pages for general system settings.
+24. Add configuration GUI pages for console window(s).
+25. Add console window capability for tabbed consoles, and allow for tear-away tabs, or drag-n-drop tabs, tab placement and window spawning from NodeJS-App commands.
+26. Add configuration GUI pages for joysticks.
+27. Add configuration GUI pages for other controllers.
+28. Add configuration GUI pages for VR systems as implemented.
+
+Strip 4 (Implementations PROJECTS)
+29: Real-time Charting systems (Dashboarding & Stock Trading)
+30: TimersXP (Skinning Engine Proof of Concept leveraging above implementation)
+
+Phase 1 (2D)
+Strip 1 (Drawing Basic Fundamental 2D Shapes & Geometry)
+1. Have an interactive NodeJS-App console in-which commands can be entered.
+2. Be able to create a 2D window from the NodeJS-App console window of a specified size.
+3. Be able to draw a single dot/vertex and/or pixel on the screen of a specified color from the NodeJS-App Console.
+4. Be able to navigate the 2D universe with mouse and Keyboard arrow keys.
+5. Be able to change key bindings between application commands and user interfaces from NodeJS-App commands. EG changing mouse axis or arrow key functionality. (This is the bindings engine)
+6. Be able to generate many dots on the screen of either a specified color or random all colors or random from a list of colors.
+7. Be able to draw a single line give two vertexes from a NodeJS-App script.
+8. Be able to randomly draw many lines of the screen in random order and position and orientation and color from a NodeJS-App script.
+9. Be able to control how the lines a drawn, from a particular orientation, or color or color list or of a particular length.
+10. Be able a single triangle from a NodeJS-App script.
+11. Be able to draw many tiangles of various sizes, orientations and colors from a NodeJS-App script.
+12. Be able to control how the triangles are drawn, from a particular orientation or list of orientations or color or color list or of a particular size or list of sizes from a NodeJS-App script.
+13. Be able draw a single square from a NodeJS-App script.
+14. Be able to draw many squares of various sizes, orientations and colors from a NodeJS-App script.
+15. Be able to control how the squares are drawn, from a particular orientation or list of orientations or color or color list or a particular size or list of sizes from a NodeJS-App script.
+16. Be able to draw a single polygon of a given number of sides/edges and points from a NodeJS-App script.
+17. Be able to draw many polygones of various sizes, orientations and colors from a NodeJS-App script.
+18. Be able to control how the polygons are drawn, from a list of the number of sides/edges and points to a random number of sides/edges and points to a particular orientation or list of orientations or color or color list and a particular size or list of sizes from a NodeJS-App script.
+19. Be able to draw a single circle from a NodeJS-App script.
+20. Be able to draw many circles of various sizes, and colors from a NodeJS-App script.
+21. Be able to control how the circles are drawn, from a list of sizes or random sizes and colors or color lists from a NodeJS-App script.
+22. Be able to draw a single ellipsoid from a NodeJS-App script.
+23. Be able to draw many ellipsoids of various sizes, orientations and colors from a NodeJS-App script.
+24. Be able to control how the ellipsoids are drawn, from a particular orientation or list of orientations or color or color list or a particular size or list of sizes from a NodeJS-App script.
+
+Strip 2 (Animation of Basic Fundamental 2D Shapes & Geometry)
+25. Be able to animate dots on the screen in the 2D environment by vector controls at the single vertex level, that is move a single dot around the screen, and/or apply key-bindings to the object such that the objects motion can be controlled with keyboard or mouse.
+26. Be able to animate lines on the screen same as the dots.
+27. Be able to animate triangles on the screen same as the dots. Rotation, Scale, Translate
+28. Be able to animate squares on the screen same as the lines and triangles, Rotation, Scale, Translate
+29. Be able to animate polygones on the screen same as the squares and triangles, Rotation, Scale, Translate.
+30. Be able to animate circles on the screen same as the squares and triangles, Rotation, Scale, Translate.
+31. Be able to animate ellipsoids on the screen same as the squares and triangles, Rotation, Scale, Translate.
+32. Be able to define trails for the dots of a specified length or an infinite length from a NodeJS-App script.
+33. Be able to define trails for the lines of a specified length or an infinite length from a NodeJS-App script.
+34. Be able to define trails for the triangles of a specified length or an infinite length from a NodeJS-App script.
+35. Be able to define trails for the squares of a specified length or an infinite length from a NodeJS-App script.
+36. Be able to define trails for the polygones of a specified length or an infinite length from a NodeJS-App script.
+37. Be able to define trails for the circles of a specified length or an infinite length from a NodeJS-App script.
+38. Be able to define trails for the ellipsoids of a specified length or an infinite length from a NodeJS-App script.
+39. Be able to build NURBS lines from a NodeJS-App script, setting grip points, and edit NURBS objects with the mouse.
+
+Strip 3 (Basic Physics, Basic AI/NPC, Sprites and full support for hardware controllers and data-input devices)
+40. Adding a basic Physics package for 2D objects such that objects can obey some rules such as gravity, acceleration, wind. Collision Detection and static collisions (No deformation)
+41. Add some basic functionality for AI/NPC based setup such that objects can behave with a hive mind-set, dots swarming and basic behaviors.
+42. Add capabilities to load and display sprites as objects.
+43. Add full support for mouse and mouse components, mouse wheel, ect, controlled from NodeJS-App Scripts
+44. Add full support for keyboards controlled from NodeJS-App Scripts
+45. Add full support for joysticks controlled from NodeJS-App Scripts
+46. Add full support for other game controllers, X-Box controllers, Wii controllers, etc...Controlled from NodeJS-App Scripts.
+47. Add full support for other data-inputs COM-Port, Raspberry-Pi, Audrino, RSS, video/audio streaming, UDP/RDP/ADP/etc...controlled from NodeJS-App Scripts.
+
+Strip 4 (Smart Objects, object-based Physics, grouped objects, derived object properties)
+48. Objects should have possible joint definitions for 2D objects.
+49. Deformation rules & Friction/sticky surfaces
+50. Nested object groups and group behaviors.
+51. Objects that define their own rules, such as objects that generate a localized 2D gravity field (eg: Black Holes)
+
+Strip 5 (Sound, acoustics, 3D Sound, sound Placement)
+52. Implement usage of the system speaker for beeps and tones controlled from NodeJS-App Scripts.
+53. Implement sound elements based and controlled from NodeJS-App scripts, sound levels.
+54. Implement tone generation controlled from NodeJS-App scripts, ability to tune frequency, amplitude, and combine with other tones, affect stereo phase, and stereo ocillations, LFO effects and pitch-bend effects key-bindings/mouse bindings.
+55. Ability to set rythems and repeating patterns controlled from NodeJS-App scripts. Basic MIDI loading, saving, editing and sequencing capabilities.
+56. Advanced ability to combine tones to build up cords or sounds as composed elements.
+57. Advanced ability to define objects as sound sources and affect 2D/3D sound placement by object-source on the screen or in an environment with many screens/monitors/views, controllable from NodeJS-App Scripts.
+
+Strip 5 (Network/Internet Communications, Configuration Management)
+58. Implement a basic Pong game, player vs computer.
+59. Add networking for network play, 2 or more computers on a network.
+60. Add Internet play, 2 or more devices on the internet.
+61. Implement a configuration management system such that system configurations can be loaded, saved, and edited. Should be loadable and unloadable from NodeJS-App Scripts, and enable configuration schemas where a certain configuration schema can be loaded and then changed for a different configuration schema at run-time. Configuration schemas should be loadable, saveable, and editable. Ensure that various configuration sub-systems are catagorized based on how they are used within the system. Such as a configuration sub-system for the console window(s), another configuration sub-system for default rendering views or rendering views for a particular game, etc...
+62. Apply configuration systems to the various existing implemented infrastructure, build various pre-fabricated configuration schemas and allow for them to be selected via the configuration management system, loaded, unloaded or re-loaded at run-time.
+
+Strip 6. (IMPLEMENTATION PROJECTS) (NOTE: All games implemented with possibility for multi-camera view) (2D Games Implementation)
+63. Implement more advanced Megaball (Breakout) game.
+64. Implement more advanced Nuclear War game.
+65. Implement more advanced Asteroids game.
+66. Implement more advanced Tetris game.
+67. Implement more advanced Pin-ball game.
+68. Implement more advanced Space Invaders game.
+69. Implement more advanced Pac-Man game.
+
+Phase 2 (3D)
+Strip 1 (Draw & Animate fundamental 3D objects)
+1. Be able to create a 3D window from the NodeJS-App Console Window of a specified size, with the camera facing in a specified direction and of a specified type. Free Camera, Direct Camera, Target Camera, Omni-Camera (Planetarium All-Sky Camera), VR-Camera from a NodeJS-App console script.
+2. Be able to draw a single dot/vertex and/or pixel on the screen in a specified 3D coordinate space from the NodeJS-App console.
+3. Be able to draw many dots on the screen of either a specified color or random all colors or random from a list of colors in a specified 3D Space.
+4. Be able to animate the camera through the 3D space, change the camera FOV, Focus, and near and far clipping planes, and move the camera location and camera target around using keyboard and mouse bindings, Camera roll angle, pitch and yaw. Moving the camera and target together as one object-group, side-to-side and up-down strafing motions.
+5. Be able to animate the dots in the 3D space moving them around in random directions or orbiting around a localized gravity source.
+6. Be able to control the animation of the dots using some motion business rules, or deformation rules/transformation rules, key-bindings from a NodeJS-App script.
+7. Be able to draw a single line on the screen in a specified 3D coordinate space from the NodeJS-App console.
+8. Be able to draw many lines on the screen of either a specified color or random all colors or random from a list of colors in a specified 3D Space.
+9. Be able to animate the lines in the 3D space moving them around in random directions and/or motions and color changing from a NodeJS-App script.
+10. Be able to control the animation of the lines using some motion business rules, or deformation rules/transformation rules, key-bindings from a NodeJS-App script.
+11. Be able to draw a single 3D pyramid from a NodeJS-App script.
+12. Be able to draw many 3D pyramid objects of various shapes and scales and sizes and colors and orientations from a NodeJS-App script.
+13. Be able to animate the 3D pyramid objects in the 3D space moving them around in random directions and changing their size, shapes colors and orientations from a NodeJS-App script.
+14. Be able to control the animation of the 3D Pyramid objects using some motion business rules, or deformation rules/transformation rules, key-bindings from a NodeJS-App script.
+15. Be able to draw a single 3D Cube from a NodeJS-App script.
+16. Be able to draw many 3D Cube objects of various shapes and scales and sizes and colors and orientations from a NodeJS-App script.
+17. Be able to animate the 3D Cube objects in the 3D space moving them around in random directions and changing their size, shapes, colors and orientations from a NodeJS-App script.
+18. Be able to control the animation of the 3D Cube objects using some motion business rules, or deformation rules/transformation rules, key-bindings from a NodeJS-App script.
+19. Be able to draw a single 3D polyhedra from a NodeJS-App script.
+20. Be able to draw many 3D Polyhedra of various shapes and scales and sizes and colors and orientations from a NodeJS-App script.
+21. Be able to animate the 3D Polyhedra in the 3D Space moving them around in random directions and changing their size, shapes (scaling even or odd vertexs to make it spiky or with big holes, colors and orientations from a NodeJS-App script.
+22. Be able to control the animation of the 3D Polyhedra objects using some motion business rules, or deformation rules/transformation rules, key-bindings from a NodeJS-App script.
+23. Be able to draw a single sphere from a NodeJS-App script.
+24. Be able to draw many 3d Sphere objects of various sizes and colors and orientations from a NodeJS-App script.
+25. Be able to animate the 3D Spheres in the 3D Space moving them around in random directions and changing their sizes, colors and orientations from a NodeJS-App script.
+26. Be able to control the animation of the 3D Sphere objects using some motion business rules, or deformation rules/transformation rules, key-bindings from a NodeJS-App script.
+27. Be able to draw a single 3D Egg-shaped object from a NodeJS-App script, via definitions of major axis, semi-major axis, minor axis and semi-minor axis from a NodeJS-App script.
+28. Be able to draw many 3D Egg-shaped objects in the 3D Space moving them around in random directions and changing their sizes, colors and orientations from a NodeJS-App script.
+29. Be able to animate the 3D Egg-shaped objects in the 3D Space moving them around in random directions and changing their sizes, colors and orientations from a NodeJS-App script.
+
+Strip 2 (Trails and advanced animation for 3D objects)
+30. Be able to define 3D Trails for dots in 3D Space of a specified length or an infinite length from a NodeJS-App script.
+31. Be able to define 3D trails for lines in 3D Space of a specified length or an infinite length from a NodeJS-App script.
+32. Be able to define 3D Trails for 3D Pyramid objects in 3D Space of a specified length or an infinite length from a NodeJS-App script.
+33. Be able to define 3D Trails for 3D Cube Objects in 3D Space of a specified length or an infinite length from a NodeJS-App script.
+34. Be able to define 3D Trails for 3D Polyhedra objects in 3D Space of a specified length or an infinite length from a NodeJS-App script.
+35. Be able to define 3D trails for 3D Sphere objects in 3D Space of a specified length or an infinite length from a NodeJS-App script.
+36. Be able to define 3D Trails for 3D Egg-Shaped objects in 3D Space of a specified length or an infinite length from a NodeJS-App script.
+37. Be able to draw and edit NURBS curves in 3D from a NodeJS-App script, or edit with mouse.
+38. Be able to draw and edit NURBS surfaces in 3D From a NodeJS-App script or edit with mouse.
+
+Strip 3 (Basic 3D Physics package and Basic 3D AI/NPC package) 
+39. Adding a basic Physics package for 3D objects such that objects can obey some rules such as gravity, acceleration, wind. Collision Detection and static collisions (No Deformation)
+40. Add some basic functionality for AI/NPC based setup such that objects can behave with a hive mind-set, dots swarming and basic behaviors.
+
+Strip 4 (Advanced 3D Physics, Smart 3D objects, Editable objects, Beginning of Applications systems, and some rendering/display/VR Tech)
+41. Objects should have possible joint definitions for 3D objects.
+42. Deformation rules & Friction/sticky surfaces.
+43. Nested object groups and group behaviors.
+44. Objects that define their own rules, such as objects that generate a localized 3D Gravity field (eg: Black Holes)
+45. Implement 3D objects that can be their own sound source in a 3D space/environment even with multiple monitors/views/cameras.
+46. Advanced 3D sound visualization where sounds can be visually analyzed in real-time using acoustic spectrum analyzer and/or 3D sound generated land-scape plot by frequency and volume in time.
+47. Optional - Implement VR support, Oculus Rift or other VR systems, if possible to add here, controlled from NodeJS-App Scripts.
+48. Add support for full-screen views, and Full-Screen multi-monitor views.
+49. Add support for other data-source input such as COM Port, Audrino and Raspberri-Pi.
+50. Add support for data-linking with web-based data-streaming sources, RSS, and other data-stream types, UDP/TCP/PGP/Video/audio streaming/etc...
+51. Add support for 3D printing, and slicer for real-time machine-tool head movement execution, and job progress, with various visualization options controllable from NodeJS-App Scripts.
+52. Implement a level editor where maps can be edited, avatar action grip points can be defined for the user to enable cimbing walls, cliff-hanging, walking tight-ropes and balancing on narrow pipes suspended over large drops or crawling hand-over-hand along wires/pipes/beams suspended over large drops.
+53. Implement a level-saving system so users can save their current state and exit the game engine then do a full restore to the exact state it is in and the exactly same behaviors of intelligent/memory driven NPC's is preserved, encode with thumb-nail to assist with recognition of saved-game-state files.
+
+Strip 5 (Support for 3D network play, better compression schemas and game-streaming)
+54. Implmenet a basic Pong game with a 3D game-space, player vs computer
+55. Add networking for network play, 2 or more computers on a network.
+56. Add Internet play, 2 or more devices on the internet.
+57. Add support for game-play streaming and real-time video encoding/screen-recorder and automatic screen-shot taking controllable from NodeJS-App Scripts, key-bindings. (having people watch other people play games has even become a sport. So we want to enable those who want to become game-player/game-creator celebrities and build an audience of game-watchers.)
+
+Strip 6 (NOTE: All games implemented with possibility for multi-camera view) (Moderately Advanced 3D game Implementations)
+58. Implement a more advanced 3D MegaBall (Breakout) game.
+59. Implement a more advanced 3D Nuclear War game.
+60. Implement a more advanced 3D Asteroids Shooter game with Physics
+61. Implement a more advanced 3D Tetris game.
+62. Implement a more advanced 3D Pin-Ball game.
+63. Implement a more advanced 3D Space Invaders game. (Fixed Location and/or limited player motion space shooter and/or full motion space shooter)
+
+Strip 7 (Advanced 3D Mathematics, plotting and Graphing tools)
+64. Implement mathematics plotting functionality, automatic historgram 1-Dimensional Charts/pie-charts, controllable from NodeJS-App Scripts.
+65. Implement mathematics plotting functionality, automatic 2D 2-axis plots, controllable from NodeJS-App Scripts.
+66. Implement mathematics plotting functionality, 3D Surface 3-axis plots, controllable from NodeJS-App Scripts.
+67. Implement mathematics plotting functionality, 3D Surface 3-axis manifold spaces plots, controllable from NodeJS-App Scripts.
+68. Implement mathematics plotting functionality, 4D Surface/volume 4-axis manifold spaces plots using the previously implemented trails functionality, controllable from NodeJS-App Scripts.
+
+Phase 3:
+Strip 1 (Advanced Texture maps, Shaders and file loading/saving/editing)
+1. Control an objects shading, Phong shading, Blin shading, real-time ray-tracing, Anisotropic from a NodeJS-App script.
+2. Be able to apply texture maps to any 2D or 3D object from a NodeJS-App script.
+3. Be able to adjust the texture map coordinates for any 2D or 3D object from a NodeJS-App script.
+4. Be able to adjust bump maps for any 2D or 3D object from a NodeJS-App script.
+5. Be able to adjust the Transparency maps for any 2D or 3D object from a NodeJS-App script.
+6. Be able to Load a texture map at run-time and apply it to any object.
+7. Be able to load any Orbiter Mesh file and display it in 3D including its textures, or disable display of textures from a NodeJS-App script, or change the texture at run-time from a NodeJS-App script.
+8. Be able to reload any Orbiter mesh file and display it at run-time then reload it again and re-display in 3D.
+9. Be able to load, edit and save Orbiter mesh files.
+10. Be able to load, edit and save .3DS files.
+11. Be able to load, edit and save .DXF files.
+12. Be able to load, edit and save .DWG files.
+13. Be able to load, edit and save .OBJ files.
+14. Be able to load, edit and save .STL files.
+
+Strip 2 (3D Lighting and visual optical effects)
+15. Be able to define lights of any kind, Omni-light, Free, Spot, Direct light, ambient light from a NodeJS-App script
+16. Be able to configure and animate various parameters of lights such as light target motion, light source motion, light color, light maps (Projections of images/video), Light Aspect Ratio, light near and far field, shadow focus/blur from a NodeJS-App script, intensity.
+17. Be able to control light volume effects such as fog, noise, wind, debries, reflective debries, fractal levels, phase, phase-angle, polarization angle(s), polarization level(s)...from a NodeJS-App script.
+18. In-direct lighting effects and spawned sources such as light reflecting off a white floor to act as a semi-directional light source from a NodeJS-App script.
+19. Be able to make geometry glowing effects and animate those effects from a NodeJS-App script.
+20. Build dynamic texture mapping for reflective surfaces or partially reflective surfaces such as Mirrors, polished granite/marble, and other glossy surfaces car windshields and cell phone screens, car body fully controlled from a NodeJS-App script.
+21. Define volume effects such as fog, thickness and depth with parameters that can be adjusted from a NodeJS-App script.
+22. Implement various ice-crystal configurations for fogs that give different indexes of reflection/refraction resulting in light-source optical rainbow effects, sun-dogs, rings, and all the other various celestial optical effects, as configured from a NodeJS-App script.
+23. Implement various lens-flare effects as configured from a NodeJS-App script, with color maps and color gradients, optical pinching, optical color pinching, and other various secondary lens effects or ray effects as configured from a NodeJS-App script.
+
+Strip 3 (over-lay graphics on various coordinate systems)
+24. Combine 2D & 3D views for heads-up display rendering library including partically transparent web-cam views controllable via a series of NodeJS-App Scripts/commands to add or remove objects on the HUD, change and/or configure items on the HUD form NodeJS-App Scripts, change units from NodeJS-App Scripts, define key-bindings to control various items on the HUD, ect....
+25. Implement an MFD system similar to orbiter, but with added capabilities such as the ability to have keyboard focus, and focus follows mouse, also ability to parse NodeJS-App scripts for the current vehicle directly from a vehicle-centric NodeJS-App script parser built into the MFD.
+26. Ability to simulate Vehicle centric operating systems such as DOS or UNIX running on the MFD, with simulated files and a simulated hard-drive, simulated batch files and scripts that can be edited, executed and saved.
+27. Add non-transparent text over-lay on a semi-transparent User Interface with a 3D rendered background controllable via a NodeJS-App script.
+28. Implement the above as the interface for the NodeJS-App console.
+29. Implement environment maps such as all-sky maps and programmaticly mapping dynamic maps such as dots rendered on a background controllable via a NodeJS-App script.
+30. Implement environment maps with capabilities to render lines on a sky-map rendered on a background controllable via a NodeJS-App script.
+31. Implement environment maps with capabilities to render triangles on a sky-map rendered on a background controllable via a NodeJS-App script.
+32. Implement environment maps with capabilities to render Squares on a sky-map rendered on a background controllable via a NodeJS-App script.
+33. Implement environment maps with capabilities to render polyhedra on a sky-map rendered on a background controllable via a NodeJS-App script.
+34. Implement environment maps with capabilities to render circles on a sky-map rendered on a background controllable via a NodeJS-App script.
+35. Implement environment maps with capabilities to render ellipsoids on a sky-map rendered on a background controllable via a NodeJS-App script.
+36. Implement environment maps with capabilities to render and edit NURBS on a sky-map rendered on a background controllable via a NodeJS-App script.
+37. Advanced shaders and shader management systems, configuration of shaders, ordering of shaders, controlled from NodeJS-App Scripts.
+
+Strip 4 (Programmable Geometry Engine)
+38. Implement geometry definitions and rendering graph and syntax parsing engine for 3D objects.
+39. Add support for inheritance properties graph of 3D objects.
+40. Implement basic data-binding for 3D objects and group-object properties graph/inheritance graph.
+41. Add support for basic GUI control objects, dials, Knobs, buttons and basic controls found in a cockpit.
+42. Add support for slightly more advanced systems such as MFD systems, and glass-cockpit interfaces.
+43. Add full support for fully virtualized & simulated computer system built into the geometry system, such as a fully functional flight computer, (DOS/UNIX Based command prompt, can accept focus from mouse)
+44. Add full support for GUI based interfaces in virtualized & simulated computer system.
+45. Add support for simulated radio communications, transmission and noise interferance, radio-reflectance, time-delay for large distances.
+46. Implement AI & Quantum Computing Interfaces to procedurally generate 3D geometry.
+
+Strip 5 (Advanced Game Implementations)
+47. Implement in-game players/avatars, and their abilities/actions, running, walking, jumping, swimming, floating, climbing, crawling, sliding, etc...
+48. Implement ship-based controls, and ships that users can take control of in-game, such as dune-buggie, cars, motor-cycles, rotor-craft, jets, aircraft, trains, boats, hover-craft, etc...
+49. Build an abstraction layer for the Orbiter rendering system. Such that the Orbiter Physics engine can use this new graphics engine.
+50. Implement a mech-warrior based First person shooter.
+51. Implement a space based navigation system with procedurally generated planets, planetary systems, and galaxies.
+52. Implement a procedurally generation editing system to edit a procedurally generated planets/moons, solar system, galaxy or universe.
+53. Implement a planetarium for procedurally generated solar systems, building all-sky maps and looking for constellation maps and picto-graphs in star-patterns, auto-generated constellation names, controllable from NodeJS-App scripts including visualization levels, and levels of approximation such as scatter plots for milky-way like dense star-fields in the sky-map.
+54. Implement a space-based 1st person shooter with simulated space economy, markets and trading, skills and skills training and skills management. Economy & Skills management should be modular and re-usable for other game implementations.
+55. Implement a series of story-lines that players can follow into the space shooter.
+56. Add mining capabilities and resource utilaziation, refining and manufacturing systems for building ships and bases and space stations.
+
+Strip 6 (Advanced AI/NPC Development)
+57. Implement advanced NPC/AI capabilities for in-game avatars, capable of tactical thinking, tactical planning, counter-moves in combat and strategy/planning/learning and adjusting combat tactics.
+58. Implement advanced NPC trading and skilling capabilities, adjusting trading tactics and learning capabilities.
+59. Implement advanced AI system with deep-learning capabilities, natural language processing and speech generation.
+60. Implement a avatar based intelligent avatar system based on Max Head Room, Ronald Regan, Michael Jackson and Mr-T.
+
+Phase 4
+Strip 1 (Advanced environmental effects, fluids, particles)
+1. Be able to define volume fog geometry using any of the previously mentioned objects including spaces defined by mathemathics 3D Manifold spaces described by equations, or NURBS volumes, and other standard volume geometries controllable from a NodeJS-App script.
+2. Be able to define other FOG parameters such as noise, Clumieness, Stickyness, condensation levels, wind, phase, fractal levels, ect...
+3. Be able to build particle systems using any kind of system object(s) or lists of objects, or randomly generated objects or even procedurally generated objects, even lights or omni-lights, or fog geometry objects, point based objects, or custom objects.
+4. Be able to manage simulated particle semi-fluids such as smoke from a cigar wafting around a room. or a semi-turbulant candle flame or slowly burning BBQ Briquet flame.
+5. Implement a story-line editor such that story-elements can be visually edited and planned out, including branches and various scenarios with multiple decision points or even open-ended player controlled decision points, reactive stories lines, such that a jedi-knight can choose to go to the dark-side or the light-side at any-time during the game, and the story/plot will react accordingly, also allows the story-line to play out different each time the user plays through a level based on what they do and when they do it, more like a real-life scenario. This will also make the game-play feel less scripted.
+
+Strip 2 (Advanced real-time Materials Simulation, Advanced real-time level-of-detail systems and dynamic real-time rendering)
+6. Level of Detail support, dynamically load additional levels of geometry and update the run-time mesh in real-time.
+7. Level of detail support, dynamically load additional levels of textures and bump maps, transparency maps, reflection maps and update the run-time mesh in real-time.
+8. Procedural surface generation for planetary surfaces. (Craters, Valleys, Canyons, Volcanos, sand-dunes, Scarpments, Mountains, Land-slide regions, Linear features, surface discoloration, elevation features such as tree-lines, calderas)
+9. Support for programatic textures such as textures that dynamically change due to heating effects, such as a ball-bearing in a blow-torch or the heat shield of a space craft!
+10. Gel like Substances that deform when pressure is applied. Gooie substances that and stick like glue or honey or motor oil, parameters adjusted via NodeJS-App Scripts. Lava-lamp simulation.
+11. Glass like substances that can shatter or crack and produce new-geometry, making use of GPU programming, configurable from NodeJS-App script and key-bindings
+12. Semi-transparent surfaces like Grapes or human skin, shine a light on it and the light will partly penetrate, configurable from NodeJS-App script and key-bindings.
+13. Ray-traced surfaces, configurable from NodeJS-App script where the parameters can be dynamic and changing such as index of reflection/refraction
+14. Other procedural geometry such as grass and trees and hair, with GPU acceleration and deformation physics and wind, ect...configurable from NodeJS-App Scripts and key-bindings
+15. Cloth simulations with collision and physics, GPU acclerated simulation, parameters controlled from NodeJS-App Scripts and key-bindings.
+
+Strip 3 (Advanced CAD systems)
+16. Implement a full CAD system for editing 2D & 3D geometry, splines, poly-lines, and spline operations such as trim/extend, arrays Linear/polar.
+17. Implement advanced 2D & 3D editing of geometry, multi-trim, intelligent 2D/3D routing and boolean operations in 2D & 3D for solids and 2D volumes.
+18. Implement advanced modeling capabilities such as surface/volume of revolution, fillets and champhers, multi-edge and advanced edge-following operations.
+19. Implement parametric editing capabilities such that relationships between operations can be established and later edited, such as distance of hole from edge, moving the edge can move the hole to maintain relationships.
+20. Implement advanced User Interface to interface with parametric rules creation and editing of parametric rules after creation. Interface should provide business rules and be controllable from NodeJS-App Scripts.
+21. Implement semi-intelligent geometry creation tools such as down-stream spline/NURBS generation following topology lines.
+22. Implement terrain generation system that can generate a terrain surface from topo-maps, and apply weathering effects of wind/water/ice errosion.
+23. Implement a mesh generation system from point-clouds, such as laser-scans or photo-grammatry generated vertex clouds.
+
+Strip 3 (Super Advanced Physics simulations)
+24. Advanced N-Body Physics simulations, Galaxy collisions, GPU accelerated simulation, parameters and debugging views controlled from NodeJS-App Scripts and key-bindings
+25. Advanced fluids physics simulations, Foams and various kinds of liquids, GPU accelerated simulation, parameters and debugging views controlled from NodeJS-App Scripts and key-bindings.
+26. Volume Tesselation, Static & Dynamic, controlled from NodeJS-App Scripts and key-bindings
+27. Finite Element Modeling for Static frames
+28. Computational Fluid Dynamics
+29. Magneto-Hydro-dynamics Fluid Simulations with coupled fields such as a plasma in a magnetic field.
+30. Time-series analysis of Magneto-Hydro-dynamic fields such as phase harmonics in coupled magnetic fields, such as the electric/magnetic occillations in the transformer core of an electric motor/transformer
+31. Simulated Chemistry, Flame-propigation, burn fields and shock-wave generation, turbulent flows and hypersonic shock-waves, thermal shock fields and plasma shock-fronts. Acoustic waves and fields, acoustic reflections inside a rocket engine.
+32. Bio-chemical reactions, such as biochemistry, protine folding visualization and simulation, solving.
+33. MRI data visualization & presentation, visualization and simulation. Brain scans and spinal column scans.
+34. DNA/RNA reaction simulations, self-assembly simulation
+35. Plasmonic and nano-structures/ quantum effects simulations
+36. Add support for auxilary CPU systems, distributed computation, mobile super computing, GPU computing, Beowulf-cluster computing.
+37. Add support massively distributed systems such as cloud computing or internet based resource sharing compute-cycle-sharing.
+38. Add object recognition for objects in photo-grammatry or 3d modeled spaces and auto-adding/auto-modeling system-generated geometry such as grass, trees, leaves, bricks, roads, office cubes, phones and generic props, cars, vans, aircraft, etc.. controlled from NodeJS-App Scripts, and business rules.
+
+
+********************************************************************************************
+SUMMARY of Phases and Strips:
+********************************************************************************************
+
+Requirements
+Phase 0: (Application GUI)
+Strip 1 (Standup Application Framework)
+Strip 2 (GUI Skinning Engine - CSS)
+Strip 3 (Configuration GUI development)
+
+Phase 1: (2D)
+Strip 1 (Drawing Basic Fundamental 2D Shapes & Geometry)
+Strip 2 (Animation of Basic Fundamental 2D Shapes & Geometry)
+Strip 3 (Basic Physics, Basic AI/NPC, Sprites and full support for hardware controllers and data-input devices)
+Strip 4 (Smart Objects, object-based Physics, grouped objects, derived object properties)
+Strip 5 (Sound, acoustics, 3D Sound, sound Placement)
+Strip 5 (Network/Internet Communications, Configuration Management)
+Strip 6 (NOTE: All games implemented with possibility for multi-camera view) (2D Games Implementation)
+
+Phase 2: (3D)
+Strip 1 (Draw & Animate fundamental 3D objects)
+Strip 2 (Trails and advanced animation for 3D objects)
+Strip 3 (Basic 3D Physics package and Basic 3D AI/NPC package) 
+Strip 4 (Advanced 3D Physics, Smart 3D objects, Editable objects, Beginning of Applications systems, and some rendering/display/VR Tech)
+Strip 5 (Support for 3D network play, better compression schemas and game-streaming)
+Strip 6 (NOTE: All games implemented with possibility for multi-camera view) (Moderately Advanced 3D game Implementations)
+Strip 7 (Advanced 3D Mathematics, plotting and Graphing tools)
+
+Phase 3: (Advanced 3D Rendering, Textures & Effects)
+Strip 1 (Advanced Texture maps, Shaders and file loading/saving/editing)
+Strip 2 (3D Lighting and visual optical effects)
+Strip 3 (over-lay graphics on various coordinate systems)
+Strip 4 (Configuration GUI development)
+Strip 5 (GUI Skinning Engine)
+Strip 6 (Programmable Geometry Engine)
+Strip 7 (Advanced Game Implementations)
+Strip 8 (Advanced AI/NPC Development)
+
+Phase 4: (Advanced Physics)
+Strip 1 (Advanced environmental effects, fluids, particles)
+Strip 2 (Advanced real-time Materials Simulation, Advanced real-time level-of-detail systems and dynamic real-time rendering)
+Strip 3 (Advanced CAD systems)
+Strip 3 (Super Advanced Physics simulations)
+
+********************************************************************************************
+Phases Summary:
+********************************************************************************************
+
+Requirements
+Phase 0: (App GUI)
+Phase 1: (2D)
+Phase 2: (3D)
+Phase 3: (Advanced 3D Rendering, Textures & Effects)
+Phase 4: (Advanced Physics)
